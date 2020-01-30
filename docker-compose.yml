@@ -1,15 +1,19 @@
-version: '1.0.0'
+version: "3.7"
+
 services:
-  web:
-    build: .
+  sp_app:
+    build: ./ShinyProxy_Image
+    image: cocomcie/shinyproxy:1.0
     ports:
-    - "5000:5000"
+      - "8080:8080"
     volumes:
-    - .:/code
-    - logvolume01:/var/log
-    links:
-    - redis
-  redis:
-    image: redis
-volumes:
-  logvolume01: {}
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./log/server:/log"
+      - "./log/container:/container-logs"
+      - "./config/shinyproxy/application.yml:/opt/shinyproxy/application.yml"
+    networks:
+      - edss-net
+
+networks:
+  edss-net:
+    name: edss-net
