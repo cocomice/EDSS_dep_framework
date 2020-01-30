@@ -1,0 +1,115 @@
+@import url("//fonts.googleapis.com/css?family=Open Sans Condensed");
+
+#leaflet-absPanel {
+  z-index:500;
+  /* position:absolute; */
+  /* Appearance */
+  float:right;
+  font-size: 8pt;
+  background-color: white;
+  padding: 5px 5px 5px 5px;
+  cursor: move;
+  color: #000000;
+  border-left: 3px solid #666666;
+  border-right: 3px solid #666666;
+  border-top: 3px solid #666666;
+  border-bottom: 3px solid #666666;
+}
+
+h4 {
+  font-family: Avenir,"Microsoft Yahei","微软雅黑",STXihei,"华文细黑",sans-serif;
+  font-weight: 500;
+  font-size: 14pt;
+  color: #272828;
+}
+
+h2 {
+  font-family: Avenir,"Microsoft Yahei","微软雅黑",STXihei,"华文细黑",sans-serif;
+  font-weight: 800;
+  font-size: 28pt;
+  color: white;
+  border: 20px solid #3b6f84;
+  background-color: #3b6f84
+}
+
+body {
+  font-family: Circular,"Microsoft Yahei","微软雅黑",STXihei,"华文细黑",sans-serif;
+  font-weight: 300;
+  font-size: 11pt;
+  line-height: 1.1;
+  color: #58595b;
+}
+
+#table_statis {
+	display:inline-block;
+	margin:auto;
+}
+
+.rightAlign {
+	float:right;
+}
+
+
+.legendbox {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.legend {
+    padding: 6px 10px 6px 6px;
+    color: #000033;
+    background: #fff;
+    border-left:3px solid #666666;
+    border-right:3px solid #666666;
+    border-top:3px solid #666666;
+    border-bottom:3px solid #666666;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    line-height: 20px;
+}
+
+/* style for tabpanel */
+
+.nav {
+  font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif ;
+  font-size:12pt;
+}
+
+.tabbable > .nav > li[class=active] > a {
+    background-color: #FFF;
+    color: #2d2d2d;
+    font-weight: bold;
+}
+
+/* my own classes */
+div .my_div {
+  margin: auto auto auto 10px;
+  font: 14px "Microsoft Yahei", Arial, Helvetica, sans-serif ;
+  font-weight: bold;
+}
+
+.psInfo {
+  font: 16px "Microsoft Yahei", Arial, Helvetica, sans-serif ;;
+  font-weight: bold;
+  color: #C22E1D;
+}
+
+.innerBar {
+  height: 2px;
+  /* Set the hr color */
+  color: #AEB3B2; /* old IE */
+  background-color: #AEB3B2; /* Modern Browsers */
+  border: 0;
+  margin: 1em 0; 
+  padding: 0;
+}
+
+.notification {
+  font: 12px "Microsoft Yahei", Arial, Helvetica, sans-serif ;
+  color: #C22E1D;
+}
+

@@ -1,2 +1,4 @@
 log/**
 tmp/**
+**/R_data/**
+**/model/**
