@@ -6,6 +6,8 @@ services:
     build: ./ShinyProxy_Image
     image: cocomcie/shinyproxy:1.0
     ports:
+      # change source port to 80 if one wants to
+      # expose shinyapp to public on internet
       - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
