@@ -4,20 +4,26 @@ proxy:
   authentication: simple
   admin-groups: admins
   users:
-  - name: jack
-    password: password
+  - name: admin
+    password: edss123
     groups: admins
-  - name: jeff
-    password: password
+  - name: guest
+    password: guest123
   docker:
       internal-networking: true
       container-network: "edss-net"
   specs:
   - id: 01_testApp
-    display-name: Test Application
-    description: Application which demonstrates the basics of a Shiny app
+    display-name: Online Groundwater Model
+    description: Application which demonstrates the Shiny app coupling with Modflow program
     container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image: test_app
+    container-image: test_2dmodel
+    container-network: "${proxy.docker.container-network}"
+  - id: 02_testApp
+    display-name: Crop Water Demand Calculator
+    description: Application which demonstrates the crop water model in a dashboard layout
+    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
+    container-image: test_ic
     container-network: "${proxy.docker.container-network}"
 
 logging:
