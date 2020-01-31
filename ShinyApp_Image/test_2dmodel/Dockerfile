@@ -1,11 +1,10 @@
-FROM openanalytics/r-base
-
-# basic shiny functionality
-RUN R -e "install.packages(c('shiny'), repos='https://cloud.r-project.org/')"
+FROM cocomcie/rshiny-base:v1.0
 
 # copy the app to the image
 RUN mkdir /root/shinyapp
 COPY app /root/shinyapp
+
+RUN Rscript /root/shinyapp/dpp.R
 
 EXPOSE 3838
 

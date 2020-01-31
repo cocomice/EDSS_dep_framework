@@ -13,10 +13,10 @@ loc <- function(os, language = "english") {
 Sys.setlocale(category = "LC_ALL", loc(Sys.info()[["sysname"]], "chinese"))
 
 # ==== %% Load functions and libraries %% ====
+source("R_sources/IC.R") # irrigation calculator module
 
 library(shiny)
 library(shinydashboard)
-library(shinythemes)
 library(shinyjs)
 library(shinyWidgets)
 library(shinycssloaders)
@@ -25,21 +25,18 @@ library(rAmCharts)
 library(pipeR)
 library(DT)
 library(lubridate)
-library(zoo)
-library(rhandsontable)
 library(dplyr)
 
-source("R_sources/IC.R") # irrigation calculator module
 
-# ==== %% Load default settings %% ====
+# ==== %% Load default data %% ====
 
 load("R_data/ShinyApp_char_dict.RData")
+
 sys_date <- Sys.Date() # get current date
 currYr <- year(sys_date)
 
-# flag for language switch: 1-Chinese | 2-English (default)
+# language switch: 1-Chinese | 2-English (default)
 idx_lang <- 2
-
 
 # ==== %% General Information %% ====
 
