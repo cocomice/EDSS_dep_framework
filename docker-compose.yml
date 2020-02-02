@@ -5,10 +5,10 @@ services:
   sp_app:
     build: ./ShinyProxy_Image
     image: cocomcie/shinyproxy:1.0
-    ports:
+    # ports:
       # change source port to 80 if one wants to
       # expose shinyapp to public on internet
-      - "8080:8080"
+      # - "8080:8080"
     volumes:
       - type: bind
         source: /var/run/docker.sock
@@ -23,6 +23,22 @@ services:
         source: ./config/shinyproxy/application.yml
         target: /opt/shinyproxy/application.yml
         read_only: true
+    networks:
+      - edss-net
+  nginx_app:
+    image: nginx
+    depends_on:
+      - sp_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - type: bind
+        source: ./config/nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+      - type: bind
+        source: ./log/nginx
+        target: /var/log/nginx
     networks:
       - edss-net
 
