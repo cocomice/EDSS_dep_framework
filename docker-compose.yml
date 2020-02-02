@@ -10,10 +10,19 @@ services:
       # expose shinyapp to public on internet
       - "8080:8080"
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./log/server:/log"
-      - "./log/container:/container-logs"
-      - "./config/shinyproxy/application.yml:/opt/shinyproxy/application.yml"
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: ./log/server
+        target: /log
+      - type: bind
+        source: ./log/container
+        target: /container-logs
+      - type: bind
+        source: ./config/shinyproxy/application.yml
+        target: /opt/shinyproxy/application.yml
+        read_only: true
     networks:
       - edss-net
 
