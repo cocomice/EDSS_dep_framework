@@ -2,6 +2,8 @@ proxy:
   port: 8080
   container-log-path: /container-logs
   authentication: simple
+  heartbeat-rate: 10000
+  heartbeat-timeout: 60000
   admin-groups: admins
   users:
   - name: admin
