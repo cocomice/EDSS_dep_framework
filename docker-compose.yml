@@ -1,44 +1,44 @@
-# Author: Yu Li (yu.li@ifu.baug.ethz.ch)
-version: "3.7"
+# Author:           Yu Li (yu.li@ifu.baug.ethz.ch)
+version:            "3.7"
 
 services:
-  sp_app: # ShinyProxy service
-    build: ./ShinyProxy_Image
-    image: cocomcie/shinyproxy:1.0
+  sp_app:           # ShinyProxy service
+    build:          ./ShinyProxy_Image
+    image:          cocomcie/shinyproxy:1.0
     volumes:
-      - type: bind
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
-      - type: bind
-        source: ./log/server
-        target: /log
-      - type: bind
-        source: ./log/container
-        target: /container-logs
-      - type: bind
-        source: ./config/shinyproxy/application.yml
-        target: /opt/shinyproxy/application.yml
-        read_only: true
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /var/run/docker.sock
+      - type:       bind
+        source:     ./log/server
+        target:     /log
+      - type:       bind
+        source:     ./log/container
+        target:     /container-logs
+      - type:       bind
+        source:     ./config/shinyproxy/application.yml
+        target:     /opt/shinyproxy/application.yml
+        read_only:  true
     networks:
       - edss-net
-  nginx_app: # NGINX service
-    image: nginx
+  nginx_app:        # NGINX service
+    image:          nginx
     depends_on:
       - sp_app
-    restart: always
+    restart:        always
     ports:
       - "80:80"
     volumes:
-      - type: bind
-        source: ./config/nginx/nginx.conf
-        target: /etc/nginx/nginx.conf
-        read_only: true
-      - type: bind
-        source: ./log/nginx
-        target: /var/log/nginx
+      - type:       bind
+        source:     ./config/nginx/nginx.conf
+        target:     /etc/nginx/nginx.conf
+        read_only:  true
+      - type:       bind
+        source:     ./log/nginx
+        target:     /var/log/nginx
     networks:
       - edss-net
 
 networks:
   edss-net:
-    name: edss-net
+    name:           edss-net

@@ -1,33 +1,33 @@
 proxy:
-  port: 8080
-  container-log-path: /container-logs
-  authentication: simple
-  heartbeat-rate: 10000
-  heartbeat-timeout: 60000
-  admin-groups: admins
+  port:                    8080
+  container-log-path:      /container-logs
+  authentication:          simple
+  heartbeat-rate:          10000
+  heartbeat-timeout:       60000
+  admin-groups:            admins
   users:
-  - name: admin
-    password: edss123
-    groups: admins
-  - name: guest
-    password: guest123
+  - name:                  admin
+    password:              edss123
+    groups:                admins
+  - name:                  guest
+    password:              guest123
   docker:
       internal-networking: true
-      bind-address: 127.0.0.1
-      container-network: "edss-net"
+      bind-address:        127.0.0.1
+      container-network:   "edss-net"
   specs:
-  - id: 01_testApp
-    display-name: Online Groundwater Model
-    description: Application which demonstrates the Shiny app coupling with Modflow program
-    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image: test_2dmodel
-    container-network: "${proxy.docker.container-network}"
-  - id: 02_testApp
-    display-name: Crop Water Demand Calculator
-    description: Application which demonstrates the crop water model in a dashboard layout
-    container-cmd: ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image: test_ic
-    container-network: "${proxy.docker.container-network}"
+  - id:                    01_testApp
+    display-name:          Online Groundwater Model
+    description:           Application which demonstrates the Shiny app coupling with Modflow program
+    container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
+    container-image:       test_2dmodel
+    container-network:     "${proxy.docker.container-network}"
+  - id:                    02_testApp
+    display-name:          Crop Water Demand Calculator
+    description:           Application which demonstrates the crop water model in a dashboard layout
+    container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
+    container-image:       test_ic
+    container-network:     "${proxy.docker.container-network}"
 
 logging:
   file:
