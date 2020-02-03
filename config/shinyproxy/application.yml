@@ -13,6 +13,7 @@ proxy:
     password: guest123
   docker:
       internal-networking: true
+      bind-address: 127.0.0.1
       container-network: "edss-net"
   specs:
   - id: 01_testApp

@@ -29,8 +29,9 @@ services:
     image: nginx
     depends_on:
       - sp_app
+    restart: always
     ports:
-      - "8080:8080"
+      - "80:80"
     volumes:
       - type: bind
         source: ./config/nginx/nginx.conf
