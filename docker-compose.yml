@@ -2,13 +2,9 @@
 version: "3.7"
 
 services:
-  sp_app:
+  sp_app: # ShinyProxy service
     build: ./ShinyProxy_Image
     image: cocomcie/shinyproxy:1.0
-    # ports:
-      # change source port to 80 if one wants to
-      # expose shinyapp to public on internet
-      # - "8080:8080"
     volumes:
       - type: bind
         source: /var/run/docker.sock
@@ -25,7 +21,7 @@ services:
         read_only: true
     networks:
       - edss-net
-  nginx_app:
+  nginx_app: # NGINX service
     image: nginx
     depends_on:
       - sp_app
