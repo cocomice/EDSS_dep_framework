@@ -17,6 +17,15 @@ __Nginx__ should be started first to provide proxy service;
 - start the program: `docker-compose up`
 - shutdown the program: `docker-compose down`
 
+## Preparation
+### Docker installation
+On Windows,
+
+On Unix machine,
+
+On Mac OS,
+
+
 ## Build the Docker image for your Shiny app
 
 We suggest users to refer to `ShinyApp_Image` folder for examples.
@@ -35,4 +44,12 @@ All the configuration files are stored under folder of `config`.
 
 ### ShinyProxy configuration
 
-The ShinyProxy use `application.yml` to configure the program. The provided one in this repository provides a minimal working example. 
+The ShinyProxy use `application.yml` to configure the program. The provided one in this repository provides a minimal working example.
+
+
+## Reference
+
+- ShinyProxy
+- Docker
+- Shiny
+- Nginx

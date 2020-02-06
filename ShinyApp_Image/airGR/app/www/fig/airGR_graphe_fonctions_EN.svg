@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   xml:space="preserve"
+   width="900"
+   height="675"
+   viewBox="0 0 900 675"
+   sodipodi:docname="airGR_graphe_fonctions_EN.svg"><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
+     id="defs6"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16"><path
+         d="m 0,1.2207e-4 720,0 0,539.99999793 -720,0 L 0,1.2207e-4 Z"
+         id="path18"
+         inkscape:connector-curvature="0"
+         style="clip-rule:evenodd" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath30"><path
+         d="M -2.123e-6,540 720,540 720,1.2207e-4 -2.123e-6,1.2207e-4"
+         id="path32"
+         inkscape:connector-curvature="0"
+         style="clip-rule:evenodd" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1132"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="0.69925926"
+     inkscape:cx="439.6143"
+     inkscape:cy="337.5"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g10" /><g
+     id="g10"
+     inkscape:groupmode="layer"
+     inkscape:label="airGR_graphe_fonctions_EN"
+     transform="matrix(1.25,0,0,-1.25,0,675)"><g
+       id="g12"><g
+         id="g14"
+         clip-path="url(#clipPath16)"><path
+           d="m 0,6.104e-6 720,0 L 720,540.00001 l -720,0 L 0,6.104e-6 Z"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path20"
+           inkscape:connector-curvature="0" /></g></g><path
+       d="m 2.6469,145.26 487.61,0 0,243.81 -487.61,0 0,-243.81 z"
+       style="fill:#d9d9d9;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path22"
+       inkscape:connector-curvature="0" /><path
+       d="m 347.57,403.82 7.09,0 0,11.34 14.18,0 0,-11.34 7.08,0 -14.17,-11.34 -14.18,11.34 z"
+       style="fill:#7f7f7f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path24"
+       inkscape:connector-curvature="0" /><g
+       id="g26"><g
+         id="g28"
+         clip-path="url(#clipPath30)"><path
+           d="m 505.09,281.34 0,-7.09 11.34,0 0,-14.17 -11.34,0 0,-7.09 -11.34,14.18 11.34,14.17 z"
+           style="fill:#7f7f7f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path34"
+           inkscape:connector-curvature="0" /></g></g><path
+       d="m 347.57,130.21 7.09,0 0,11.34 14.18,0 0,-11.34 7.08,0 -14.17,-11.34 -14.18,11.34 z"
+       style="fill:#7f7f7f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path36"
+       inkscape:connector-curvature="0" /><path
+       d="m 248.68,364.34 c 0,3.94 3.19,7.13 7.14,7.13 l 211.86,0 c 3.94,0 7.14,-3.19 7.14,-7.13 l 0,-28.55 c 0,-3.94 -3.2,-7.13 -7.14,-7.13 l -211.86,0 c -3.95,0 -7.14,3.19 -7.14,7.13 l 0,28.55 z"
+       style="fill:#003a80;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path38"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,264.65,354.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text40"><tspan
+         x="0 7.9161601 16.32708 21.673679 25.7754"
+         y="0"
+         sodipodi:role="line"
+         id="tspan42">Pot. </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,294.05,354.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text44"><tspan
+         x="0 7.80444 14.763 22.407841 30.834721 39.24564 44.400719 51.965759 57.34428 61.047001 69.457916"
+         y="0"
+         sodipodi:role="line"
+         id="tspan46">evaporation</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,375.77,354.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text48"><tspan
+         x="0 6.60744 15.01836 27.770399 36.149399 44.5284 49.683479 57.24852 62.627041 66.329758 74.740677"
+         y="0"
+         sodipodi:role="line"
+         id="tspan50">computation</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,271.13,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text52"><tspan
+         x="0"
+         y="0"
+         id="tspan54">(</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,275.93,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text56"><tspan
+         x="0 4.8997202 10.18248 18.593399"
+         y="0"
+         sodipodi:role="line"
+         id="tspan58">from</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,311.09,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text60"><tspan
+         x="0 5.2827601 13.23084 25.919041"
+         y="0"
+         sodipodi:role="line"
+         id="tspan62">temp</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,345.41,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text64"><tspan
+         x="0"
+         y="0"
+         id="tspan66">.</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,349.49,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text68"><tspan
+         x="0"
+         y="0"
+         id="tspan70">-</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,354.41,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text72"><tspan
+         x="0 8.3789997 16.07172 22.31208 30.26016"
+         y="0"
+         sodipodi:role="line"
+         id="tspan74">based</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,396.53,335.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text76"><tspan
+         x="0 4.5645599 12.97548 18.48168 31.233721 39.61272 43.28352 50.992199"
+         y="0"
+         sodipodi:role="line"
+         id="tspan78">formula)</tspan></text>
+<path
+       d="m 248.68,309.53 c 0,3.94 3.19,7.13 7.14,7.13 l 211.86,0 c 3.94,0 7.14,-3.19 7.14,-7.13 l 0,-28.55 c 0,-3.94 -3.2,-7.13 -7.14,-7.13 l -211.86,0 c -3.95,0 -7.14,3.19 -7.14,7.13 l 0,28.55 z"
+       style="fill:#003a80;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path80"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,286.61,289.8)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text82"><tspan
+         x="0 10.56552 18.8328 24.211321 27.91404 40.66608 44.33688 50.48148 58.04652 63.425041 67.127762 75.538681"
+         y="0"
+         sodipodi:role="line"
+         id="tspan84">Optimization</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,373.97,289.8)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text86"><tspan
+         x="0"
+         y="0"
+         id="tspan88">a</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,381.65,289.8)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text90"><tspan
+         x="0 3.7027199 11.14008 19.551001 25.057199 28.75992 34.138439 42.517441"
+         y="0"
+         sodipodi:role="line"
+         id="tspan92">lgorithm</tspan></text>
+<path
+       d="m 248.68,254.72 c 0,3.94 3.19,7.13 7.14,7.13 l 211.86,0 c 3.94,0 7.14,-3.19 7.14,-7.13 l 0,-28.54 c 0,-3.95 -3.2,-7.14 -7.14,-7.14 l -211.86,0 c -3.95,0 -7.14,3.19 -7.14,7.14 l 0,28.54 z"
+       style="fill:#003a80;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path94"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,290.93,244.58)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text96"><tspan
+         x="0 8.5066795 16.183439 19.88616 23.588881 31.96788 37.154881 44.719921 50.098438 53.801159 62.212078 70.59108 76.75164 84.875282 92.520119 96.254761 99.861717 108.24072 115.69404 121.07256 124.67952 133.09044"
+         y="0"
+         sodipodi:role="line"
+         id="tspan98">Calibration/Validation</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,304.49,225.38)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text100"><tspan
+         x="0 5.2827601 13.23084 19.32756 24.706079 28.4088 36.7878"
+         y="0"
+         sodipodi:role="line"
+         id="tspan102">testing</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,352.25,225.38)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text104"><tspan
+         x="0 8.3789997 13.67772 22.08864 28.83972 36.723961 45.102959 53.48196 58.796638"
+         y="0"
+         sodipodi:role="line"
+         id="tspan106">procedure</tspan></text>
+<path
+       d="m 248.68,199.91 c 0,3.94 3.19,7.14 7.14,7.14 l 211.86,0 c 3.94,0 7.14,-3.2 7.14,-7.14 l 0,-28.54 c 0,-3.95 -3.2,-7.14 -7.14,-7.14 l -211.86,0 c -3.95,0 -7.14,3.19 -7.14,7.14 l 0,28.54 z"
+       style="fill:#003a80;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path108"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,304.25,189.77)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text110"><tspan
+         x="0 8.5066795 14.07672 17.74752 23.04624 30.99432 36.484558 40.187279"
+         y="0"
+         sodipodi:role="line"
+         id="tspan112">Criteria</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,355.73,189.77)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text114"><tspan
+         x="0 4.5645599 12.97548 18.48168 22.31208 35.064121 43.47504 51.854038 59.754238"
+         y="0"
+         sodipodi:role="line"
+         id="tspan116">for model</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,277.73,170.57)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text118"><tspan
+         x="0 6.60744 14.25228 17.986919 21.68964 30.06864 35.255638 42.820679 48.1992 51.90192 60.31284 68.691841 72.059402 79.704239 88.131119 96.510117"
+         y="0"
+         sodipodi:role="line"
+         id="tspan120">calibration and </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,377.81,170.57)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text122"><tspan
+         x="0 7.80444 14.763 22.407841 26.142481 34.521481 42.102482 47.480999 51.18372 59.594639"
+         y="0"
+         sodipodi:role="line"
+         id="tspan124">evaluation</tspan></text>
+<path
+       d="m 194.65,96.447 c 0,9.653 7.83,17.483 17.48,17.483 l 299.24,0 c 9.65,0 17.48,-7.83 17.48,-17.483 l 0,-69.92 c 0,-9.655 -7.83,-17.4809 -17.48,-17.4809 l -299.24,0 c -9.65,0 -17.48,7.8259 -17.48,17.4809 l 0,69.92 z"
+       style="fill:#dd4814;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path126"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,331.22,93.792)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text128"><tspan
+         x="0 12.168 21.834 28.08 37.782001 47.484001 53.73"
+         y="0"
+         sodipodi:role="line"
+         id="tspan130">Outputs</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,207,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text132"><tspan
+         x="0"
+         y="0"
+         id="tspan134">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,229.56,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text136"><tspan
+         x="0 7.7725201 11.50716 24.259199 32.14344"
+         y="0"
+         sodipodi:role="line"
+         id="tspan138">Time </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,265.32,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text140"><tspan
+         x="0 6.2403598 14.18844 19.67868 23.381399 31.329479"
+         y="0"
+         sodipodi:role="line"
+         id="tspan142">series</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,306.74,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text144"><tspan
+         x="0 8.4109201 13.27872"
+         y="0"
+         sodipodi:role="line"
+         id="tspan146">of </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,323.66,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text148"><tspan
+         x="0 6.2403598 9.9430799 22.69512 31.07412 34.744919 42.389759 47.624641 55.57272"
+         y="0"
+         sodipodi:role="line"
+         id="tspan150">simulated</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,390.98,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text152"><tspan
+         x="0 4.8997202 8.6024399 16.885679 28.169399"
+         y="0"
+         sodipodi:role="line"
+         id="tspan154">flows</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,429.14,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text156"><tspan
+         x="0 7.6448398 16.07172 24.45072"
+         y="0"
+         sodipodi:role="line"
+         id="tspan158">and </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,457.25,73.992)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text160"><tspan
+         x="0 3.7027199 11.98596 17.268721 25.216801 30.707041 39.08604 46.778759"
+         y="0"
+         sodipodi:role="line"
+         id="tspan162">internal</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,229.56,54.792)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text164"><tspan
+         x="0 6.11268 11.26776 18.8328 24.115561 32.063641 35.511002 42.469559 50.114399 55.684441 59.35524 67.047958 75.426964 79.145638 87.093719"
+         y="0"
+         sodipodi:role="line"
+         id="tspan166">state variables</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,207,35.568)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text168"><tspan
+         x="0"
+         y="0"
+         id="tspan170">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,229.56,35.568)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text172"><tspan
+         x="0 7.320672 12.115872 16.990992 20.747232 27.508465 31.184784 39.144817 47.536415 54.233711"
+         y="0"
+         sodipodi:role="line"
+         id="tspan174">Efficiency</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,294.5,35.568)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text176"><tspan
+         x="0 6.7612319 12.243744 15.920064 21.274704 29.170799 34.68528 38.361599"
+         y="0"
+         sodipodi:role="line"
+         id="tspan178">criteria</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,207,16.368)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text180"><tspan
+         x="0"
+         y="0"
+         id="tspan182">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,229.56,16.368)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text184"><tspan
+         x="0 8.2513199 11.98596 20.396879 25.743481"
+         y="0"
+         sodipodi:role="line"
+         id="tspan186">Plot </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,258.96,16.368)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text188"><tspan
+         x="0 8.3789997 12.09768 19.742519 27.323521 35.702518 44.113441 50.242081 55.620602 59.323318 66.074402 72.314758 79.257362 83.805962 92.216881 97.723083 101.55348 107.79384 111.49656 124.2486 132.62759 136.2984 143.94324 149.28984 152.8968 161.30772"
+         y="0"
+         sodipodi:role="line"
+         id="tspan190">diagnostics for simulation</tspan></text>
+<path
+       d="m 199.41,512.52 c 0,10.11 8.19,18.3 18.29,18.3 l 288.43,0 c 10.11,0 18.3,-8.19 18.3,-18.3 l 0,-73.17 c 0,-10.11 -8.19,-18.3 -18.3,-18.3 l -288.43,0 c -10.1,0 -18.29,8.19 -18.29,18.3 l 0,73.17 z"
+       style="fill:#7f7f7f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path192"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,338.26,508.32)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text194"><tspan
+         x="0 4.8060002 14.472 24.228001 33.93 40.175999"
+         y="0"
+         sodipodi:role="line"
+         id="tspan196">Inputs</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,211.99,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text198"><tspan
+         x="0"
+         y="0"
+         id="tspan200">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,234.55,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text202"><tspan
+         x="0 8.2513199 13.566 21.51408 28.201321 31.904039 40.283039 44.00172 49.156799 56.72184 62.100361 65.803078 74.213997"
+         y="0"
+         sodipodi:role="line"
+         id="tspan204">Precipitation</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,320.74,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text206"><tspan
+         x="0 7.6448398 16.07172 24.45072"
+         y="0"
+         sodipodi:role="line"
+         id="tspan208">and </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,348.82,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text210"><tspan
+         x="0 5.2827601 13.23084 25.919041 34.298038 42.24612 47.401199 54.96624 60.344761 68.723763 74.022476"
+         y="0"
+         sodipodi:role="line"
+         id="tspan212">temperature</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,434.64,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text214"><tspan
+         x="0 5.37852 9.0812397 21.833281 29.71752"
+         y="0"
+         sodipodi:role="line"
+         id="tspan216">time </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,468.12,488.52)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text218"><tspan
+         x="0 6.2403598 14.18844 19.67868 23.381399 31.329479"
+         y="0"
+         sodipodi:role="line"
+         id="tspan220">series</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,211.99,469.32)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text222"><tspan
+         x="0"
+         y="0"
+         id="tspan224">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,234.55,469.32)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text226"><tspan
+         x="0 7.3256402 12.67224 18.00288 25.95096 33.595798 46.204201 51.10392 54.806641 63.089882"
+         y="0"
+         sodipodi:role="line"
+         id="tspan228">Streamflow</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,313.06,469.32)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text230"><tspan
+         x="0 5.37852 9.0812397 21.833281 29.71752"
+         y="0"
+         sodipodi:role="line"
+         id="tspan232">time </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,346.42,469.32)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text234"><tspan
+         x="0 6.2403598 14.18844 19.67868 23.381399 31.329479"
+         y="0"
+         sodipodi:role="line"
+         id="tspan236">series</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,211.99,450.12)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text238"><tspan
+         x="0"
+         y="0"
+         id="tspan240">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,234.55,450.12)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text242"><tspan
+         x="0 8.5066795 16.087681 21.24276 27.993839 36.372841 49.124882 57.009121 65.292358"
+         y="0"
+         sodipodi:role="line"
+         id="tspan244">Catchment</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,308.86,450.12)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text246"><tspan
+         x="0 6.2403598 9.9430799 15.94404 23.89212 27.499081 35.143921 43.522919 51.90192 55.429081 59.131802 66.696838 72.075363 75.778084 81.156601 89.535599 97.914597"
+         y="0"
+         sodipodi:role="line"
+         id="tspan248">size and latitude</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,211.99,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text250"><tspan
+         x="0"
+         y="0"
+         id="tspan252">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,234.55,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text254"><tspan
+         x="0 9.9430799 17.17296 25.440241 31.680599 40.091518 52.843559 60.600121 65.978638 71.500801 75.203522"
+         y="0"
+         sodipodi:role="line"
+         id="tspan256">Hypsometric</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,320.5,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text258"><tspan
+         x="0 6.75108 15.13008 20.747999 27.83424"
+         y="0"
+         sodipodi:role="line"
+         id="tspan260">curve</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,360.22,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text262"><tspan
+         x="0 4.8358798 9.35256 17.763479 23.26968"
+         y="0"
+         sodipodi:role="line"
+         id="tspan264">(for </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,387.34,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text266"><tspan
+         x="0 6.2403598 14.61936 22.91856"
+         y="0"
+         sodipodi:role="line"
+         id="tspan268">snow</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,425.52,430.92)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text270"><tspan
+         x="0 12.75204 21.16296 29.54196 37.920959 41.62368 49.571758"
+         y="0"
+         sodipodi:role="line"
+         id="tspan272">module)</tspan></text>
+<path
+       d="m 524.86,316.63 c 0,13.27 10.76,24.03 24.03,24.03 l 96.12,0 c 13.27,0 24.03,-10.76 24.03,-24.03 l 0,-98.49 c 0,-13.27 -10.76,-24.03 -24.03,-24.03 l -96.12,0 c -13.27,0 -24.03,10.76 -24.03,24.03 l 0,98.49 z"
+       style="fill:#7f7f7f;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path274"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,543.62,309.34)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text276"><tspan
+         x="0 9.5220003 19.188 26.153999 32.273998 41.958 56.591999 61.02 68.255997 76.896004 83.141998 87.57 97.181999"
+         y="0"
+         sodipodi:role="line"
+         id="tspan278">Customisation</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,539.18,289.54)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text280"><tspan
+         x="0"
+         y="0"
+         id="tspan282">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,561.74,289.54)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text284"><tspan
+         x="0 13.6458 22.056721 30.43572 38.383801 42.102482"
+         y="0"
+         sodipodi:role="line"
+         id="tspan286">Models</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,539.18,270.34)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text288"><tspan
+         x="0"
+         y="0"
+         id="tspan290">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,561.74,270.34)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:'Calibri, Normal';writing-mode:lr;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-style:normal;font-stretch:normal;text-anchor:start;text-align:start;line-height:125%;"
+       id="text292"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4339">Snow model</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,539.18,251.11)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text296"><tspan
+         x="0"
+         y="0"
+         id="tspan298">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,561.74,251.11)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text300"><tspan
+         x="0 10.581408 18.845137 24.199776 27.956017 40.679279 44.355598 50.525425 58.085857 63.440495 67.196739 75.6203"
+         y="0"
+         sodipodi:role="line"
+         id="tspan302">Optimization</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,561.74,231.91)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text304"><tspan
+         x="0 7.6448398 11.37948 18.816839 27.22776 32.733959 36.43668 41.815201 50.194199"
+         y="0"
+         sodipodi:role="line"
+         id="tspan306">algorithm</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,539.18,212.71)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text308"><tspan
+         x="0"
+         y="0"
+         id="tspan310">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,561.74,212.71)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text312"><tspan
+         x="0 8.5066795 14.07672 17.74752 23.04624 30.99432 36.484558 40.187279"
+         y="0"
+         sodipodi:role="line"
+         id="tspan314">Criteria</tspan></text>
+<path
+       d="m 18.234,340.15 c 0,10.85 8.792,19.64 19.637,19.64 l 164.809,0 c 10.85,0 19.64,-8.79 19.64,-19.64 l 0,-78.54 c 0,-10.85 -8.79,-19.64 -19.64,-19.64 l -164.809,0 c -10.845,0 -19.637,8.79 -19.637,19.64 l 0,78.54 z"
+       style="fill:#99cc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path316"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,31.2,333.24)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text318"><tspan
+         x="0 11.358 19.674 29.375999 35.495998 45.18 49.608002 59.363998 67.896004 72.323997 79.650002 88.542"
+         y="0"
+         sodipodi:role="line"
+         id="tspan320">Hydrological</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,127.92,333.24)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text322"><tspan
+         x="0 14.634 24.318001 34.056 43.164001 47.591999"
+         y="0"
+         sodipodi:role="line"
+         id="tspan324">models</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,31.2,313.44)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text326"><tspan
+         x="0"
+         y="0"
+         id="tspan328">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,53.76,313.44)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text330"><tspan
+         x="0 10.07076 18.73704 26.764919 36.708"
+         y="0"
+         sodipodi:role="line"
+         id="tspan332">GR4H </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,94.44,313.44)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text334"><tspan
+         x="0"
+         y="0"
+         id="tspan336">(</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,99.24,313.44)"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:'Calibri Italic';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text338"><tspan
+         x="0 8.2034397 16.32708 24.530519 30.004801 33.70752"
+         y="0"
+         sodipodi:role="line"
+         id="tspan340">hourly</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,140.04,313.44)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text342"><tspan
+         x="0"
+         y="0"
+         id="tspan344">)</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,31.2,294.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text346"><tspan
+         x="0"
+         y="0"
+         id="tspan348">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,53.76,294.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text350"><tspan
+         x="0 10.085904 18.765217 26.757215 31.552416 35.548416 39.448513 49.534416 58.21373 66.205727 71.000931 74.996925 79.024895 89.110802 97.790115 105.78211 110.81707"
+         y="0"
+         sodipodi:role="line"
+         id="tspan352">GR4J, GR5J, GR6J </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,168.6,294.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text354"><tspan
+         x="0"
+         y="0"
+         id="tspan356">(</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,173.4,294.22)"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:'Calibri Italic';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text358"><tspan
+         x="0 8.1678238 16.335648 20.011969 23.752224"
+         y="0"
+         sodipodi:role="line"
+         id="tspan360">daily</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,204.26,294.22)"
+       style="font-variant:normal;font-weight:normal;font-size:15.98400021px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text362"><tspan
+         x="0"
+         y="0"
+         id="tspan364">)</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,31.2,275.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text366"><tspan
+         x="0"
+         y="0"
+         id="tspan368">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,53.76,275.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text370"><tspan
+         x="0 10.07076 18.73704 26.764919 40.410721"
+         y="0"
+         sodipodi:role="line"
+         id="tspan372">GR2M </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,98.04,275.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text374"><tspan
+         x="0"
+         y="0"
+         id="tspan376">(</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,102.84,275.02)"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:'Calibri Italic';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text378"><tspan
+         x="0 12.62436 20.76396 28.8078 34.186321 42.389759 46.060558"
+         y="0"
+         sodipodi:role="line"
+         id="tspan380">monthly</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,156,275.02)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text382"><tspan
+         x="0"
+         y="0"
+         id="tspan384">)</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,31.2,255.82)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text386"><tspan
+         x="0"
+         y="0"
+         id="tspan388">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,53.76,255.82)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text390"><tspan
+         x="0 10.07076 18.73704 26.764919 36.00576"
+         y="0"
+         sodipodi:role="line"
+         id="tspan392">GR1A </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,93.6,255.82)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text394"><tspan
+         x="0"
+         y="0"
+         id="tspan396">(</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,98.4,255.82)"
+       style="font-style:italic;font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:'Calibri Italic';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text398"><tspan
+         x="0 8.1600399 16.32008 24.48012 32.64016 40.800201"
+         y="0"
+         sodipodi:role="line"
+         id="tspan400">annual</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,142.92,255.82)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text402"><tspan
+         x="0"
+         y="0"
+         id="tspan404">)</tspan></text>
+<path
+       d="m 18.202,222.07 c 0,4.73 3.832,8.56 8.559,8.56 l 186.999,0 c 4.73,0 8.56,-3.83 8.56,-8.56 l 0,-34.23 c 0,-4.73 -3.83,-8.56 -8.56,-8.56 l -186.999,0 c -4.727,0 -8.559,3.83 -8.559,8.56 l 0,34.23 z"
+       style="fill:#99cc00;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="path406"
+       inkscape:connector-curvature="0" /><text
+       transform="matrix(1,0,0,-1,27.912,208.49)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text408"><tspan
+         x="0 8.5139999 18.216 27.9 41.363998"
+         y="0"
+         sodipodi:role="line"
+         id="tspan410">Snow </tspan></text>
+<text
+       transform="matrix(1,0,0,-1,73.152,208.49)"
+       style="font-variant:normal;font-weight:bold;font-size:18px;font-family:Calibri;-inkscape-font-specification:'Calibri Bold';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text412"><tspan
+         x="0 14.634 24.318001 34.056 43.164001"
+         y="0"
+         sodipodi:role="line"
+         id="tspan414">model</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,27.912,188.69)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Arial;-inkscape-font-specification:Arial;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text416"><tspan
+         x="0"
+         y="0"
+         id="tspan418">•</tspan></text>
+<text
+       transform="matrix(1,0,0,-1,50.472,188.69)"
+       style="font-variant:normal;font-weight:normal;font-size:15.96000004px;font-family:Calibri;-inkscape-font-specification:Calibri;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="text420"><tspan
+         x="0 8.5066795 16.45476 29.2068 36.851639 47.1618 55.109879 58.780682 66.234001"
+         y="0"
+         sodipodi:role="line"
+         id="tspan422">CemaNeige</tspan></text>
+</g></svg>
