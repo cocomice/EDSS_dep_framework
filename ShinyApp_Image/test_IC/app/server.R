@@ -13,6 +13,12 @@ shinyServer(function(input, output, session) {
     planDB = NULL
   )
 
+  # ==== __Database module ====
+  RV_db <- reactiveValues(
+    db = NULL,
+    key = "N/A",
+    metaInfo = NULL
+  )
   
   ## ==== Dynamic UI elements ====
 
@@ -35,6 +41,9 @@ shinyServer(function(input, output, session) {
   observeEvent(input$btn_goTo, {
     if (input$navMod == "mod_IC") {
       updateTabsetPanel(session, "mainNavBar", selected = "navIC")
+    }
+    if (input$navMod == "mod_data") {
+      updateTabsetPanel(session, "mainNavBar", selected = "navData")
     }
   })
   
@@ -230,6 +239,68 @@ shinyServer(function(input, output, session) {
     )
   })
 
+  ## ==== __Dashboard ====
+  ## ---- ____change tabs ----
+  observeEvent(input$tabs, {
+    
+    
+    if (input$tabs == "db_overview") {
+      RV_db$metaInfo <- metaInfo
+    }
+    
+  })
+  
+  
+  ## ---- ____btm: download data bottom ----
+  observeEvent(input$btn_download2, {
+    showModal(
+      modalDialog(
+        title = h3(UI_DBPortal_Tab$hd_str$h4[idx_lang]),
+        footer = NULL,
+        size = "m", easyClose = TRUE, fade = TRUE,
+        fluidRow(
+          column(
+            12,
+            sliderTextInput(
+              inputId = "sldr_timeRng",
+              label = UI_DBPortal_Tab$slider_str$slider_timeRng[idx_lang],
+              choices = seq(2000, currYr),
+              selected = c(2015, 2017)
+            )
+          ),
+          column(
+            12,
+            downloadButton("btn_download3", UI_DBPortal_Tab$BT_str$btOK[idx_lang])
+          )
+        )
+      )
+    )
+  })
+  
+  
+  ## ---- ____btm: "OK" bottom to confirm download ----
+  output$btn_download3 <- downloadHandler(
+    filename <- function() {
+      paste("download_gb2312", "csv", sep = ".")
+    },
+    
+    content <- function(file) {
+      start_yr <- input$sldr_timeRng[1]
+      end_yr <- input$sldr_timeRng[2]
+      
+      if (input$db_rb_dataType == 1) {
+        outputFile <- glob_util.getFile_Pt(start_yr, end_yr)
+      }
+      
+      
+      IOStatus = file.copy(outputFile, file)
+      if (IOStatus==T){
+        file.remove(outputFile)
+      }
+    }
+    # TODO: alternative is to trigger python script to prepare the download files
+  )
+  
   ## ==== Plots, Text and Tables ====
 
   # ==== __Irrigation Calculator =====
@@ -326,7 +397,77 @@ shinyServer(function(input, output, session) {
       style = "bootstrap"
     )
   })
-
+  
+  # ==== __Dashboard ====
+  # ---- ____map: leaflet base map in dashboard ----
+  output$map_dashboard <- renderLeaflet({
+    
+    shape_irr_area  <- readOGR("R_data/module_db/GT_GIS_db.sqlite", "townships")
+    
+    leaflet() %>%
+      addTiles() %>%
+      addPolygons(
+        data = shape_irr_area, color = "#636363",
+        opacity = 0.6, fill = TRUE, weight = 1
+      ) %>%
+      addScaleBar("bottomleft") %>%
+      addEasyButton(easyButton(
+        icon = "fa-globe", title = "reset",
+        onClick = JS("function(btn, map){ map.setView(new L.LatLng(36.62, 115.29), 10); }")
+      ))
+  })
+  
+  # ---- ____table: table of data meta information----
+  output$tabu_dataMetaInfo <- DT::renderDataTable({
+    idx <- as.numeric(input$db_rb_dataType)
+    
+    db_tmp <- data.frame(
+      items = UI_DBPortal_Tab$table_str$metaInfo[idx_lang, ],
+      details = RV_db$metaInfo[[idx_lang]][idx]
+    )
+    
+    datatable(
+      db_tmp,
+      rownames = F,
+      class = "cell-border stripe",
+      colnames = c("", ""), # do not show column name
+      options = list(
+        autoWidth = TRUE,
+        columnDefs = list(list(width = "150px", targets = 0)),
+        paging = F,
+        info = F,
+        ordering = F,
+        searching = F
+      ),
+      style = "bootstrap"
+    )
+  })
+  
+  
+  # ---- ____chart: meteorological data time-series ----
+  output$meteo_ts <- renderAmCharts({
+    db_tmp <- readRDS("R_data/module_db/monthlyPt.rds")
+    db_tmp[is.na(db_tmp)] <- NA # TODO: to be removed
+    colnames(db_tmp) <- c("date", "val")
+    
+    amSerialChart(dataProvider = db_tmp, theme = "dark", categoryField = "date") %>%
+      addGraph(
+        valueField = "val", precision = 1,
+        lineColor = "#1485CC",
+        lineThickness = 4,
+        connect = F,
+        bullet = "round",
+        bulletBorderThickness = 3,
+        bulletBorderAlpha = 1,
+        bulletColor = "#ffffff",
+        bulletBorderColor = "#5b7ea3",
+        bulletSize = 6
+      ) %>%
+      addTitle(text = UI_DBPortal_Tab$plt_str$title_d2[idx_lang], size = 24) %>%
+      setChartScrollbar(autoGridCount = T) %>%
+      setChartCursor(valueLineEnabled = FALSE, valueLineBalloonEnabled = TRUE)
+  })
+  
   ## ==== End Shiny Session =====
   session$onSessionEnded(function() {
     stopApp()

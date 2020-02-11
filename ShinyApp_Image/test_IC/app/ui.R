@@ -37,7 +37,6 @@ shinyUI(fluidPage(
 
       h3(UI_Home_Tab$hdr_str$h_b[[idx_lang]]),
 
-      # tags$div( style = "height: 250px;",
       tabsetPanel(
         id = "navMod",
         selected = NULL,
@@ -53,6 +52,21 @@ shinyUI(fluidPage(
               tags$div(
                 class = "taskItem",
                 HTML(UI_Home_Tab$module_str$module_c[[idx_lang]])
+              )
+            )
+          )
+        ),
+        tabPanel(
+          title = UI_Home_Tab$tab_str$tab_b4[idx_lang],
+          value = "mod_data",
+          
+          fluidRow(
+            style = "background-color:#337ab7;",
+            column(
+              6,
+              tags$div(
+                class = "taskItem",
+                HTML(UI_Home_Tab$module_str$module_d[[idx_lang]])
               )
             )
           )
@@ -192,6 +206,89 @@ shinyUI(fluidPage(
             fluidRow(
               br(),
               DT::dataTableOutput("tabu_irrNorm")
+            )
+          )
+        )
+      )
+    ),
+    
+    
+    # Data Portal Tab ----------------------------------------------------------
+    tabPanel(
+      UI_DBPortal_Tab$tab_str$tab_a[idx_lang],
+      value = "navData",
+      
+      dashboardPage(
+        dashboardHeader(title = UI_DBPortal_Tab$hd_str$h1[idx_lang], disable = F),
+        
+        # ---- __Sidebar menu----
+        dashboardSidebar(sidebarMenu(
+          id = "tabs",
+          
+          menuItem(
+            UI_DBPortal_Tab$menuItem_str$tab_b[idx_lang],
+            tabName = "data_archive",
+            startExpanded = TRUE,
+            icon = icon("folder"),
+            menuItem(UI_DBPortal_Tab$menuItem_str$tab_b1[idx_lang], tabName = "db_overview", icon = icon("folder")),
+            menuItem(UI_DBPortal_Tab$menuItem_str$tab_b2[idx_lang], tabName = "meteo_data", icon = icon("folder"))
+          )
+        )),
+        
+        # ---- __Main panel ----
+        dashboardBody(
+          fluidRow(
+            box(
+              background = "black",
+              title = NULL, solidHeader = T, collapsible = T, width = 12,
+              leafletOutput("map_dashboard")
+            )
+          ),
+          
+          tabItems(
+            
+            tabItem(
+              tabName = "db_overview",
+              fluidRow(
+                box(
+                  width = 12,
+                  background = "black",
+                  h3(UI_DBPortal_Tab$hd_str$h3[idx_lang]),
+                  br(),
+                  
+                  radioGroupButtons(
+                    inputId = "db_rb_dataType",
+                    label = UI_DBPortal_Tab$BT_str$radioBT_choiceData$label[idx_lang],
+                    choices = UI_DBPortal_Tab$BT_str$radioBT_choiceData[[idx_lang]],
+                    selected = 1,
+                    individual = T
+                  ),
+                  
+                  DT::dataTableOutput("tabu_dataMetaInfo"),
+                  hr(),
+   
+                  column(
+                    4,
+                    actionBttn("btn_download2",
+                               label = UI_DBPortal_Tab$BT_str$btDownload[idx_lang],
+                               style = "fill",
+                               color = "default", size = "sm", block = F, no_outline = F
+                    )
+                  )
+                )
+              )
+            ),
+            
+            tabItem(
+              tabName = "meteo_data",
+              
+              fluidRow(
+                box(
+                  width = 12,
+                  background = "black",
+                  amChartsOutput("meteo_ts") %>% withSpinner()
+                )
+              )
             )
           )
         )
