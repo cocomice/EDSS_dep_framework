@@ -14,6 +14,7 @@ Sys.setlocale(category = "LC_ALL", loc(Sys.info()[["sysname"]], "chinese"))
 
 # ==== %% Load functions and libraries %% ====
 source("R_sources/IC.R") # irrigation calculator module
+source("R_sources/Glob_Utils.R") # utility modules
 
 library(shiny)
 library(shinydashboard)
@@ -29,6 +30,7 @@ library(pipeR)
 library(DT)
 library(lubridate)
 library(dplyr)
+library(dbplyr)
 
 
 # ==== %% Load default data %% ====

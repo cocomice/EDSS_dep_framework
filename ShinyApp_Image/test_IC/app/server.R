@@ -265,7 +265,7 @@ shinyServer(function(input, output, session) {
               inputId = "sldr_timeRng",
               label = UI_DBPortal_Tab$slider_str$slider_timeRng[idx_lang],
               choices = seq(2000, currYr),
-              selected = c(2015, 2017)
+              selected = c(2010, 2017)
             )
           ),
           column(
@@ -277,6 +277,25 @@ shinyServer(function(input, output, session) {
     )
   })
   
+  ## ---- ____slider: check slider years for download----
+  observeEvent(input$sldr_timeRng, {
+    start_yr <- as.integer(input$sldr_timeRng[1])
+    end_yr <- as.integer(input$sldr_timeRng[2])
+    
+    if ((end_yr - start_yr) >= 10) {
+      sendSweetAlert(
+        session = session,
+        title = "Error !!",
+        text = "Maximal 10 years to download",
+        type = "error"
+      )
+      
+      updateSliderTextInput(session, "sldr_timeRng",
+                            choices = seq(2000, currYr),
+                            selected = c(2010, 2017)
+      )
+    }
+  })
   
   ## ---- ____btm: "OK" bottom to confirm download ----
   output$btn_download3 <- downloadHandler(
@@ -288,9 +307,7 @@ shinyServer(function(input, output, session) {
       start_yr <- input$sldr_timeRng[1]
       end_yr <- input$sldr_timeRng[2]
       
-      if (input$db_rb_dataType == 1) {
-        outputFile <- glob_util.getFile_Pt(start_yr, end_yr)
-      }
+      outputFile <- glob_util.getFile_Pt(start_yr, end_yr)
       
       
       IOStatus = file.copy(outputFile, file)
@@ -446,8 +463,19 @@ shinyServer(function(input, output, session) {
   
   # ---- ____chart: meteorological data time-series ----
   output$meteo_ts <- renderAmCharts({
-    db_tmp <- readRDS("R_data/module_db/monthlyPt.rds")
-    db_tmp[is.na(db_tmp)] <- NA # TODO: to be removed
+
+    con <- DBI::dbConnect(RSQLite::SQLite(),  "R_data/module_db/test_db.sqlite")
+    
+    tmp_db <- tbl(con, "meteo") %>%
+      collect()
+    
+    DBI::dbDisconnect(con)
+    
+    # manipulate data
+    db_tmp <- data.frame(
+      date = paste(as.character(tmp_db$year), as.character(tmp_db$month), sep = "-"),
+      val  = tmp_db$pt
+    )
     colnames(db_tmp) <- c("date", "val")
     
     amSerialChart(dataProvider = db_tmp, theme = "dark", categoryField = "date") %>%
