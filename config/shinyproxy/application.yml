@@ -20,20 +20,20 @@ proxy:
     display-name:          Online Groundwater Model
     description:           Application which demonstrates the Shiny app coupling with Modflow program
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image:       test_2dmodel
+    container-image:       cocomcie/test_2dmodel
     container-network:     "${proxy.docker.container-network}"
   - id:                    02_testApp
     display-name:          Crop Water Demand Calculator
     description:           Application which demonstrates the crop water model in a dashboard layout
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image:       test_ic
+    container-image:       cocomcie/test_ic
     container-volumes:     ["/d/users/YuLi/Dropbox/Personal_Workspace/Workspace/03Small_Projects/15EDSS_dev_framework/database/test_db.sqlite:/root/shinyapp/R_data/module_db/test_db.sqlite" ]
     container-network:     "${proxy.docker.container-network}"
   - id:                    03_testApp
     display-name:          airGR
     description:           Application which demonstrates the crop water model in a dashboard layout
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
-    container-image:       airgr_app
+    container-image:       cocomcie/air_gr
     container-network:     "${proxy.docker.container-network}"
 
 logging:
