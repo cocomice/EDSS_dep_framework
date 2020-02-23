@@ -9,11 +9,11 @@
   - [Docker Compose (for Unix users)](#docker-compose-for-unix-users)
 - [How to run the examples](#how-to-run-the-examples)
 - [How to prepare and run your own case study apps](#how-to-prepare-and-run-your-own-case-study-apps)
-  - [Build the Docker image for your Shiny app](#build-the-docker-image-for-your-shiny-app)
-  - [Adapt configuration files](#adapt-configuration-files)
+  - [1. Build the Docker image for your Shiny app](#1-build-the-docker-image-for-your-shiny-app)
+  - [2. Adapt configuration files](#2-adapt-configuration-files)
     - [ShinyProxy configuration](#shinyproxy-configuration)
     - [Nginx configuration (optional)](#nginx-configuration-optional)
-  - [Test and debug](#test-and-debug)
+  - [3. Test and debug](#3-test-and-debug)
   - [Server deployment](#server-deployment)
 - [Reference](#reference)
 - [Contact](#contact)
@@ -38,7 +38,7 @@ This repository contains all source files for constructing the EDSS framework. T
 ├── README.md           # The markdown file that renders this page
 ├── ShinyApp_Image      # Folder that contains the Shiny application examples
 ├── ShinyBase_Image     # Folder for building the "rshiny-base" image
-├── ShinyProxy_Image    # Folder for building the
+├── ShinyProxy_Image    # Folder for building the ShinyProxy image
 ├── config              # Folder containing the configuration files
 ├── database            # Folder containing external data files used by Shiny applications
 ├── docker-compose.yml  # The main file used by Docker Compose program
@@ -49,7 +49,7 @@ This repository contains all source files for constructing the EDSS framework. T
 
 # Preparation
 
-Install the following two programs.
+The following two programs are required to use the EDSS framework.
 
 
 ## Docker
@@ -92,17 +92,17 @@ Assuming one has already developed the Shiny app, deploying the app requires fol
 2. Adapt the configuration file for ShinyProxy and, optionally, Nginx;
 3. Deploy containers using Docker Compose;
 
-## Build the Docker image for your Shiny app
+## 1. Build the Docker image for your Shiny app
 
-We suggest users to refer to `ShinyApp_Image` folder for examples.
-1. prepare your Shiny app in `app` folder;
-2. (optional) edit __Dockerfile__ if necessary;
-3. in your command line window, navigate to the folder where your __Dockerfile__ is located;
-4. run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The __same__ `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
-5. test the image by running `docker run -p 3838:3838 -d image_name`. Afterwards, open the browser and visit page `localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
+It is strongly suggested that users to refer to `ShinyApp_Image` folder for examples.
+
+1. Prepare your Shiny app in `app` folder;
+3. In your command line window, navigate to the folder where your __Dockerfile__ is located;
+4. Run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The __same__ `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
+5. Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
 
 
-## Adapt configuration files
+## 2. Adapt configuration files
 
 All configuration files are stored under folder of `config`, where
 
@@ -110,18 +110,54 @@ All configuration files are stored under folder of `config`, where
 - `nginx/nginx.conf` is the configuration file for Nginx;
 
 
-
 ### ShinyProxy configuration
 
 The ShinyProxy use `application.yml` to configure the program. The provided one in this repository provides a minimal working example.
 
+It is mandatory to adapt `application.yml` by adding your Shiny application so ShinyProxy knows where to find and manage it. To add it, go to line 18 `specs:` section and add following fields
+```yaml
+- id:                    02_testApp # unique Id for your Shiny app
+  display-name:          Crop Water Demand Calculator # name to be displayed on the main page of the ShinyProxy
+  description:           Application which demonstrates the crop water model in a dashboard layout # description of the applicaiton
+  container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"] # don't change it
+  container-image:       cocomcie/test_ic # the name of your image of the Shiny app
+  container-volumes:     ["/d/users/YuLi/Dropbox/Personal_Workspace/Workspace/03Small_Projects/15EDSS_dev_framework/database/test_db.sqlite:/root/shinyapp/R_data/module_db/test_db.sqlite" ] # (optional) attach external data volume to the app
+  container-network:     "${proxy.docker.container-network}" # don't change
+```
+
+Users may also want to change authorisation configuration, which can be found at `users` section. Three fields shall be created for each designated user:
+
+```yaml
+  - name:                  admin   # username
+    password:              edss123 # password
+    groups:                admins  # the group it belongs to. Users can define different users to give them limited access to some Shiny apps.
+```  
+
+**Notice that two users cannot use the same username to access the app, otherwise one will be disconnected.**
+
+Repeat such block as many times as the number of apps you want to add. **Notice that only include the Shiny apps which you have built the images of**.
+
+Additional adaptation is optional and for the full configurable options please visit the ShinyProxy website [here](https://www.shinyproxy.io/configuration/).
+
 ### Nginx configuration (optional)
 
+The provided configuration file provides a minimal running example for server deployment, with which users on Internet can visit your Shiny apps with the address of **http://public_ip:80** on the browser. The __public_ip__ is the IP address of the server accessible on Internet.
 
-## Test and debug
+## 3. Test and debug
 
 
-## Server deployment
+1. Start the program by typing `docker-compose up -d`;
+2. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the login page;
+3. Use the username and password you defined in the `applicaiton.yml` file to access the Shiny apps;
+4. To shutdown the system simply typing `docker-compose down`;
+
+The `log` folder containers the log files for debug. In specific,
+
+* `log/container` folder holds logs for containers;
+* `log/nginx` folder holds logs for Nginx server;
+* `log/server` folder holds logs for Shiny applications;
+
+## 4. Server deployment
 
 
 
