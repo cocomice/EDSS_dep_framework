@@ -19,10 +19,14 @@ services:
         source:     ./config/shinyproxy/application.yml
         target:     /opt/shinyproxy/application.yml
         read_only:  true
+    environment:
+      - VIRTUAL_HOST=shinyProxy
+      - VIRTUAL_PORT=8080
     networks:
       - edss-net
+
   nginx_app:        # NGINX service
-    image:          nginx
+    image:          jwilder/nginx-proxy
     depends_on:
       - sp_app
     restart:        always
@@ -30,9 +34,13 @@ services:
       - "80:80"
     volumes:
       - type:       bind
-        source:     ./config/nginx/nginx.conf
-        target:     /etc/nginx/nginx.conf
+        source:     /var/run/docker.sock
+        target:     /tmp/docker.sock
         read_only:  true
+      # - type:       bind
+      #   source:     ./config/nginx/nginx.conf
+      #   target:     /etc/nginx/nginx.conf
+      #   read_only:  true
       - type:       bind
         source:     ./log/nginx
         target:     /var/log/nginx

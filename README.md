@@ -6,7 +6,7 @@
 - [Description of the repository](#description-of-the-repository)
 - [Preparation](#preparation)
   - [Docker](#docker)
-  - [Docker Compose (for Unix users)](#docker-compose-for-unix-users)
+  - [Docker Compose (for Linux users)](#docker-compose-for-linux-users)
 - [How to run the examples](#how-to-run-the-examples)
 - [How to prepare and run your own case study apps](#how-to-prepare-and-run-your-own-case-study-apps)
   - [1. Build the Docker image for your Shiny app](#1-build-the-docker-image-for-your-shiny-app)
@@ -14,7 +14,7 @@
     - [ShinyProxy configuration](#shinyproxy-configuration)
     - [Nginx configuration (optional)](#nginx-configuration-optional)
   - [3. Test and debug](#3-test-and-debug)
-  - [Server deployment](#server-deployment)
+  - [4. Server deployment](#4-server-deployment)
 - [Reference](#reference)
 - [Contact](#contact)
 - [Copyright](#copyright)
@@ -53,12 +53,12 @@ The following two programs are required to use the EDSS framework.
 
 
 ## Docker
-Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be download from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows).
+Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows).
 
 Linux users please refer to the office guide [here](https://docs.docker.com/install/linux/docker-ce/centos/) for installation under different Linux distributions.
 
 
-## Docker Compose (for Unix users)
+## Docker Compose (for Linux users)
 
 Run following commands:
 
@@ -79,7 +79,7 @@ sudo chmod +x /usr/local/bin/docker-compose
     docker pull cocomcie/test_2dmodel && \
     docker pull cocomcie/air_gr
     ```
-4. Start the program by typing `docker-compose up -d`.
+4. Start the program by typing `docker-compose up -d`;
 5. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the login page;
 6. Use __admin__ for the username and __edss123__ for the password to access the Shiny app examples;
 7. To shutdown the system simply typing `docker-compose down`;
@@ -94,7 +94,7 @@ Assuming one has already developed the Shiny app, deploying the app requires fol
 
 ## 1. Build the Docker image for your Shiny app
 
-It is strongly suggested that users to refer to `ShinyApp_Image` folder for examples.
+It is strongly recommended that users refer to `ShinyApp_Image` folder for examples.
 
 1. Prepare your Shiny app in `app` folder;
 3. In your command line window, navigate to the folder where your __Dockerfile__ is located;
