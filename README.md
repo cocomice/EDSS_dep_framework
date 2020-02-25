@@ -80,9 +80,9 @@ sudo chmod +x /usr/local/bin/docker-compose
     docker pull cocomcie/air_gr
     ```
 4. Start the program by typing `docker-compose up -d`;
-5. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the Shiny apps. The client to manage MySQL database can be visited via `localhost:8080` with **root** for the username and **example** for the password; 
+5. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the Shiny apps. The client to manage MySQL database can be visited via `localhost:8080` with **root** for the username and **example** for the password;
 6. Use __admin__ for the username and __edss123__ for the password to access the Shiny app examples;
-7. To shutdown the system simply typing `docker-compose down -v --rmi all --remove-orphans`;
+7. To shutdown the system simply typing `docker-compose down`;
 
 # How to prepare and run your own case study apps
 
