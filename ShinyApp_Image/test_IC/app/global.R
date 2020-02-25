@@ -31,6 +31,7 @@ library(DT)
 library(lubridate)
 library(dplyr)
 library(dbplyr)
+library(RMySQL)
 
 
 # ==== %% Load default data %% ====

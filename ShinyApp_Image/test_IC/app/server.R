@@ -464,7 +464,7 @@ shinyServer(function(input, output, session) {
   # ---- ____chart: meteorological data time-series ----
   output$meteo_ts <- renderAmCharts({
 
-    con <- DBI::dbConnect(RSQLite::SQLite(),  "R_data/module_db/test_db.sqlite")
+    con <- DBI::dbConnect(MySQL(), user='root', password='example', dbname='edss_db', host='db')
     
     tmp_db <- tbl(con, "meteo") %>%
       collect()

@@ -27,8 +27,7 @@ proxy:
     description:           Application which demonstrates the crop water model in a dashboard layout
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/test_ic
-    container-volumes:     ["/d/users/YuLi/Dropbox/Personal_Workspace/Workspace/03Small_Projects/15EDSS_dev_framework/database/test_db.sqlite:/root/shinyapp/R_data/module_db/test_db.sqlite" ]
-    container-network:     "${proxy.docker.container-network}"
+  container-network:     "${proxy.docker.container-network}"
   - id:                    03_testApp
     display-name:          airGR
     description:           Application which demonstrates the crop water model in a dashboard layout
