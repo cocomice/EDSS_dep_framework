@@ -1,71 +1,107 @@
-# Author:                   Yu Li (yu.li@ifu.baug.ethz.ch)
-version:                    "3.7"
+# Author:           Yu Li (yu.li@ifu.baug.ethz.ch)
+
+version:            "3.7"
 
 services:
-  sp_app:                   # ShinyProxy service
-    build:                  ./ShinyProxy_Image
-    image:                  cocomcie/shinyproxy:1.0
-    restart:                always
+  sp_app:           # ShinyProxy service
+    build:          ./ShinyProxy_Image
+    image:          cocomcie/shinyproxy:1.0
+    restart:        always
     volumes:
-      - type:               bind
-        source:             /var/run/docker.sock
-        target:             /var/run/docker.sock
-      - type:               bind
-        source:             ./log/server
-        target:             /log
-      - type:               bind
-        source:             ./log/container
-        target:             /container-logs
-      - type:               bind
-        source:             ./config/shinyproxy/application.yml
-        target:             /opt/shinyproxy/application.yml
-        read_only:          true
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /var/run/docker.sock
+      - type:       bind
+        source:     ./log/server
+        target:     /log
+      - type:       bind
+        source:     ./log/container
+        target:     /container-logs
+      - type:       bind
+        source:     ./config/shinyproxy/application.yml
+        target:     /opt/shinyproxy/application.yml
+        read_only:  true
     environment:
-      - VIRTUAL_HOST=shinyProxy
+      - VIRTUAL_HOST=edss-test
+      # - LETSENCRYPT_HOST=subdomain.yourdomain.tld
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
 
-  db:                       # MySQL database
-    image:                  mysql
-    command:                --default-authentication-plugin=mysql_native_password
-    restart:                always
-    # environment:
-    #   MYSQL_ROOT_PASSWORD:  example33 # password for root user
+  db:               # MySQL database
+    image:          mysql
+    command:        --default-authentication-plugin=mysql_native_password
+    restart:        always
     volumes:
-      - type:               bind
-        source:             ./database/test_ic
-        target:             /var/lib/mysql
+      - type:       bind
+        source:     ./database/test_ic
+        target:     /var/lib/mysql
     networks:
       - edss-net
 
-  adminer:                  # Database management client
-    image:                  adminer
-    restart:                always
+  adminer:          # Database management client
+    image:          adminer
+    restart:        always
     ports:
       - 8080:8080
     networks:
       - edss-net
 
-  nginx_app:                # NGINX service
-    image:                  jwilder/nginx-proxy
+  nginx_app:        # NGINX service
+    image:          jwilder/nginx-proxy
     depends_on:
       - sp_app
-    restart:                always
+    restart:        always
     ports:
       - "80:80"
+      - "443:443"
     volumes:
-      - type:               bind
-        source:             /var/run/docker.sock
-        target:             /tmp/docker.sock
-        read_only:          true
-      - type:               bind
-        source:             ./log/nginx
-        target:             /var/log/nginx
+      - type:       volume
+        source:     nginx.certs
+        target:     /etc/nginx/certs
+      - type:       volume
+        source:     nginx.vhost.d
+        target:     /etc/nginx/vhost.d
+      - type:       volume
+        source:     nginx.html
+        target:     /usr/share/nginx/html
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /tmp/docker.sock
+        read_only:  true
+      - type:       bind
+        source:     ./log/nginx
+        target:     /var/log/nginx
     networks:
       - edss-net
 
+  letsencrypt:      # SSL/TLS service
+    image:          jrcs/letsencrypt-nginx-proxy-companion
+    restart:        always
+    volumes:
+      - type:       volume
+        source:     nginx.certs
+        target:     /etc/nginx/certs
+      - type:       volume
+        source:     nginx.vhost.d
+        target:     /etc/nginx/vhost.d
+      - type:       volume
+        source:     nginx.html
+        target:     /usr/share/nginx/html
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /var/run/docker.sock
+        read_only:  true
+    environment:
+      - DEFAULT_EMAIL=yourmail@provider # optional
+    networks:
+      - edss-net
+
+volumes:
+  nginx.certs:
+  nginx.vhost.d:
+  nginx.html:
 
 networks:
   edss-net:
-    name:                   edss-net
+    name:           edss-net

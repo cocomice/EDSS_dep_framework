@@ -12,7 +12,6 @@
   - [1. Build the Docker image for your Shiny app](#1-build-the-docker-image-for-your-shiny-app)
   - [2. Adapt configuration files](#2-adapt-configuration-files)
     - [ShinyProxy configuration](#shinyproxy-configuration)
-    - [Nginx configuration (optional)](#nginx-configuration-optional)
   - [3. Test and debug](#3-test-and-debug)
   - [4. Server deployment](#4-server-deployment)
 - [Reference](#reference)
@@ -72,25 +71,31 @@ sudo chmod +x /usr/local/bin/docker-compose
 # How to run the examples
 
 1. Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
-2. In the command line window, navigate the working directory to the EDSS folder;
+2. In the command line window, navigate the working directory to the EDSS folder by typing `cd path_to_EDSS_folder`. Replace `path_to_EDSS_folder` with the actual path name of the folder;
 3. Pull all example images by typing
     ```bash
-    docker pull cocomcie/test_ic && \
-    docker pull cocomcie/test_2dmodel && \
+    docker pull cocomcie/test_ic
+    docker pull cocomcie/test_2dmodel
     docker pull cocomcie/air_gr
     ```
-4. Start the program by typing `docker-compose up -d`;
-5. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the Shiny apps. The client to manage MySQL database can be visited via `localhost:8080` with **root** for the username and **example** for the password;
-6. Use __admin__ for the username and __edss123__ for the password to access the Shiny app examples;
+4. Start the program by typing `docker-compose up -d`. Now the system should be running on background;
+5. Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
+    * `C:\Windows\System32\drivers\etc\` for Windows;
+    * `/etc/` for Linux;
+    * `/Private/etc/` for Mac;
+5. On the browser, one can then access the database and the apps as below:
+   * Shinyapps: visit `http://edss-test/` and use __admin__ for the username and __edss123__ for the password;
+   * MySQL database: visit `http://localhost:8080` with **root** for the username and **example** for the password;
 7. To shutdown the system simply typing `docker-compose down`;
+8. Remove the line `127.0.0.1  edss-test` added in step 5;
 
 # How to prepare and run your own case study apps
 
 Assuming one has already developed the Shiny app, deploying the app requires following four steps
 
 1. Build the Docker image for the Shiny app;
-2. Adapt the configuration file for ShinyProxy and, optionally, Nginx;
-3. Deploy containers using Docker Compose;
+2. Adapt the configuration file for ShinyProxy;
+3. Deploy the system;
 
 ## 1. Build the Docker image for your Shiny app
 
@@ -107,8 +112,6 @@ It is strongly recommended that users refer to `ShinyApp_Image` folder for examp
 All configuration files are stored under folder of `config`, where
 
 - `shinyproxy/application.yml` is the configuration file for ShinyProxy;
-- `nginx/nginx.conf` is the configuration file for Nginx;
-
 
 ### ShinyProxy configuration
 
@@ -121,11 +124,10 @@ It is mandatory to adapt `application.yml` by adding your Shiny application so S
   description:           Application which demonstrates the crop water model in a dashboard layout # description of the applicaiton
   container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"] # don't change it
   container-image:       cocomcie/test_ic # the name of your image of the Shiny app
-  container-volumes:     ["/d/users/YuLi/Dropbox/Personal_Workspace/Workspace/03Small_Projects/15EDSS_dev_framework/database/test_db.sqlite:/root/shinyapp/R_data/module_db/test_db.sqlite" ] # (optional) attach external data volume to the app
   container-network:     "${proxy.docker.container-network}" # don't change
 ```
 
-Users may also want to change authorisation configuration, which can be found at `users` section. Three fields shall be created for each designated user:
+Users may also want to change authorization configuration, which can be found at `users` section. Three fields shall be created for each designated user:
 
 ```yaml
   - name:                  admin   # username
@@ -133,15 +135,12 @@ Users may also want to change authorisation configuration, which can be found at
     groups:                admins  # the group it belongs to. Users can define different users to give them limited access to some Shiny apps.
 ```  
 
-**Notice that two users cannot use the same username to access the app, otherwise one will be disconnected.**
+**:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
 
-Repeat such block as many times as the number of apps you want to add. **Notice that only include the Shiny apps which you have built the images of**.
+Repeat such block as many times as the number of apps you want to add.
+**:warning: Only include the Shiny apps which you have built the images of**.
 
 Additional adaptation is optional and for the full configurable options please visit the ShinyProxy website [here](https://www.shinyproxy.io/configuration/).
-
-### Nginx configuration (optional)
-
-The provided configuration file provides a minimal running example for server deployment, with which users on Internet can visit your Shiny apps with the address of **http://public_ip:80** on the browser. The __public_ip__ is the IP address of the server accessible on Internet.
 
 ## 3. Test and debug
 
