@@ -1,8 +1,11 @@
 
+
+# Table of content
+
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 <!-- code_chunk_output -->
 
-- [Todo list:](#todo-list)
+- [Table of content](#table-of-content)
 - [Description of the repository](#description-of-the-repository)
 - [Preparation](#preparation)
   - [Docker](#docker)
@@ -14,20 +17,12 @@
     - [ShinyProxy configuration](#shinyproxy-configuration)
   - [3. Test and debug](#3-test-and-debug)
   - [4. Server deployment](#4-server-deployment)
-- [Reference](#reference)
+- [:book:Reference](#bookreference)
 - [Contact](#contact)
 - [Copyright](#copyright)
 
 <!-- /code_chunk_output -->
 
-
-# Todo list:
-
-- [x] check `docker-compose.yml` that can invoke `shinyproxy` successfully;
-- [x] from `r-base` package build a new image (e.g., `rshinybase`) with `shiny` and `shinydashboard` pre-installed;
-- [x] configure __nginx__ to work with __shinyproxy__;
-- [ ] configure __certbot__ to provide ssl certification (optional);
-- [ ] add support for Kubernetes/Swarm;
 
 # Description of the repository
 
@@ -78,7 +73,7 @@ sudo chmod +x /usr/local/bin/docker-compose
     docker pull cocomcie/test_2dmodel
     docker pull cocomcie/air_gr
     ```
-4. Start the program by typing `docker-compose up -d`. Now the system should be running on background;
+4. Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
 5. Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
     * `C:\Windows\System32\drivers\etc\` for Windows;
     * `/etc/` for Linux;
@@ -86,12 +81,12 @@ sudo chmod +x /usr/local/bin/docker-compose
 5. On the browser, one can then access the database and the apps as below:
    * Shinyapps: visit `http://edss-test/` and use __admin__ for the username and __edss123__ for the password;
    * MySQL database: visit `http://localhost:8080` with **root** for the username and **example** for the password;
-7. To shutdown the system simply typing `docker-compose down`;
+7. To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
 8. Remove the line `127.0.0.1  edss-test` added in step 5;
 
 # How to prepare and run your own case study apps
 
-Assuming one has already developed the Shiny app, deploying the app requires following four steps
+Assuming one has already developed the Shiny app, deploying the app requires following three steps
 
 1. Build the Docker image for the Shiny app;
 2. Adapt the configuration file for ShinyProxy;
@@ -104,7 +99,7 @@ It is strongly recommended that users refer to `ShinyApp_Image` folder for examp
 1. Prepare your Shiny app in `app` folder;
 3. In your command line window, navigate to the folder where your __Dockerfile__ is located;
 4. Run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The __same__ `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
-5. Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
+5. Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `http://localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
 
 
 ## 2. Adapt configuration files
@@ -123,7 +118,7 @@ It is mandatory to adapt `application.yml` by adding your Shiny application so S
   display-name:          Crop Water Demand Calculator # name to be displayed on the main page of the ShinyProxy
   description:           Application which demonstrates the crop water model in a dashboard layout # description of the applicaiton
   container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"] # don't change it
-  container-image:       cocomcie/test_ic # the name of your image of the Shiny app
+  container-image:       cocomcie/test_ic # the image name of your Shiny app
   container-network:     "${proxy.docker.container-network}" # don't change
 ```
 
@@ -160,16 +155,19 @@ The `log` folder containers the log files for debug. In specific,
 
 
 
-# Reference
+# :book:Reference
 
 - [ShinyProxy](https://www.shinyproxy.io/)
 - [Docker](https://docs.docker.com/)
 - [Shiny](https://shiny.rstudio.com/reference/shiny/)
 - [Nginx](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/)
+- [Letsencrypt](https://letsencrypt.org/)
 
 
 # Contact
 
-Author: Dr. Yu Li (yu.li@ifu.baug.ethz.ch)
+**Author**: Dr. Yu Li ([:email:](yu.li@ifu.baug.ethz.ch))
 
-# Copyright
+# Credits
+- AirGR example:
+- VirTUe example:
