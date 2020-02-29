@@ -1,71 +1,67 @@
-# Author:                   Yu Li (yu.li@ifu.baug.ethz.ch)
-version:                    "3.7"
+# Author:           Yu Li (yu.li@ifu.baug.ethz.ch)
+version:            "3.7"
 
 services:
-  sp_app:                   # ShinyProxy service
-    build:                  ./ShinyProxy_Image
-    image:                  cocomcie/shinyproxy:1.0
-    restart:                always
+  sp_app:           # ShinyProxy service
+    build:          ./ShinyProxy_Image
+    image:          cocomcie/shinyproxy:1.0
+    restart:        always
     volumes:
-      - type:               bind
-        source:             /var/run/docker.sock
-        target:             /var/run/docker.sock
-      - type:               bind
-        source:             ./log/server
-        target:             /log
-      - type:               bind
-        source:             ./log/container
-        target:             /container-logs
-      - type:               bind
-        source:             ./config/shinyproxy/application.yml
-        target:             /opt/shinyproxy/application.yml
-        read_only:          true
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /var/run/docker.sock
+      - type:       bind
+        source:     ./log/server
+        target:     /log
+      - type:       bind
+        source:     ./log/container
+        target:     /container-logs
+      - type:       bind
+        source:     ./config/shinyproxy/application.yml
+        target:     /opt/shinyproxy/application.yml
+        read_only:  true
     environment:
       - VIRTUAL_HOST=edss-test
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
 
-  db:                       # MySQL database
-    image:                  mysql
-    command:                --default-authentication-plugin=mysql_native_password
-    restart:                always
-    # environment:
-    #   MYSQL_ROOT_PASSWORD:  example33 # password for root user
+  db:               # MySQL database
+    image:          mysql
+    command:        --default-authentication-plugin=mysql_native_password
+    restart:        always
     volumes:
-      - type:               bind
-        source:             ./database/test_ic
-        target:             /var/lib/mysql
+      - type:       bind
+        source:     ./database/test_ic
+        target:     /var/lib/mysql
     networks:
       - edss-net
 
-  adminer:                  # Database management client
-    image:                  adminer
-    restart:                always
+  adminer:          # Database management client
+    image:          adminer
+    restart:        always
     ports:
       - 8080:8080
     networks:
       - edss-net
 
-  nginx_app:                # NGINX service
-    image:                  jwilder/nginx-proxy
-    depends_on:
-      - sp_app
-    restart:                always
+  nginx_app:        # NGINX service
+    image:          jwilder/nginx-proxy
+    restart:        always
     ports:
       - "80:80"
     volumes:
-      - type:               bind
-        source:             /var/run/docker.sock
-        target:             /tmp/docker.sock
-        read_only:          true
-      - type:               bind
-        source:             ./log/nginx
-        target:             /var/log/nginx
+      - type:       bind
+        source:     /var/run/docker.sock
+        target:     /tmp/docker.sock
+        read_only:  true
+      - type:       bind
+        source:     ./log/nginx
+        target:     /var/log/nginx
     networks:
       - edss-net
 
 
 networks:
   edss-net:
-    name:                   edss-net
+    name:           edss-net

@@ -22,8 +22,8 @@ services:
         target:     /opt/shinyproxy/application.yml
         read_only:  true
     environment:
-      - VIRTUAL_HOST=edss-test
-      # - LETSENCRYPT_HOST=subdomain.yourdomain.tld
+      - VIRTUAL_HOST=www.ifu-gwm.com
+      - LETSENCRYPT_HOST=www.ifu-gwm.com
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
@@ -49,12 +49,12 @@ services:
 
   nginx_app:        # NGINX service
     image:          jwilder/nginx-proxy
-    depends_on:
-      - sp_app
     restart:        always
     ports:
       - "80:80"
       - "443:443"
+    environment:
+      - DHPARAM_GENERATION=false
     volumes:
       - type:       volume
         source:     nginx.certs
@@ -72,11 +72,15 @@ services:
       - type:       bind
         source:     ./log/nginx
         target:     /var/log/nginx
+    labels:
+      - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy=true"
     networks:
       - edss-net
 
   letsencrypt:      # SSL/TLS service
     image:          jrcs/letsencrypt-nginx-proxy-companion
+    depends_on:
+      - nginx_app
     restart:        always
     volumes:
       - type:       volume
@@ -93,7 +97,7 @@ services:
         target:     /var/run/docker.sock
         read_only:  true
     environment:
-      - DEFAULT_EMAIL=yourmail@provider # optional
+      - DEFAULT_EMAIL=yu.li@ifu.baug.ethz.ch # optional
     networks:
       - edss-net
 
