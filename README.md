@@ -15,11 +15,11 @@
   - [1. Build the Docker image for your Shiny app](#1-build-the-docker-image-for-your-shiny-app)
   - [2. Adapt configuration files](#2-adapt-configuration-files)
     - [ShinyProxy configuration](#shinyproxy-configuration)
-  - [3. Test and debug](#3-test-and-debug)
-  - [4. Server deployment](#4-server-deployment)
-- [:book:Reference](#bookreference)
+    - [Server configuration](#server-configuration)
+  - [3. Server deployment](#3-server-deployment)
+  - [4. Debug](#4-debug)
+- [Reference](#reference)
 - [Contact](#contact)
-- [Copyright](#copyright)
 
 <!-- /code_chunk_output -->
 
@@ -35,10 +35,10 @@ This repository contains all source files for constructing the EDSS framework. T
 ├── ShinyProxy_Image    # Folder for building the ShinyProxy image
 ├── config              # Folder containing the configuration files
 ├── database            # Folder containing external data files used by Shiny applications
-├── docker-compose.yml  # The main file used by Docker Compose program
-├── log                 # Folder containing the log files
+├── run_examples.yml    # The Docker compose file for running example
+├── docker-compose.yml  # The Docker compose file for deployment
+├── log                 # Folder containing log files
 ```
-
 
 
 # Preparation
@@ -72,15 +72,23 @@ sudo chmod +x /usr/local/bin/docker-compose
     docker pull cocomcie/test_ic
     docker pull cocomcie/test_2dmodel
     docker pull cocomcie/air_gr
+    docker pull cocomcie/virtue
     ```
 4. Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
 5. Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
     * `C:\Windows\System32\drivers\etc\` for Windows;
     * `/etc/` for Linux;
-    * `/Private/etc/` for Mac;
+    * `/private/etc/` for Mac;
 5. On the browser, one can then access the database and the apps as below:
-   * Shinyapps: visit `http://edss-test/` and use __admin__ for the username and __edss123__ for the password;
-   * MySQL database: visit `http://localhost:8080` with **root** for the username and **example** for the password;
+   * __Shiny apps__: visit `http://edss-test/` and login the app using a valid username and password. A list of legitimate users are given below:
+
+      username | password | privilege |
+      --- | --- | --- |
+      admin | edss123 | can access all apps
+      jack  | guest123 | can access some apps
+      david | guest123 | can access some apps  
+
+   * __MySQL database__: visit `http://localhost:8080` with **root** for the username and **example** for the password;
 7. To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
 8. Remove the line `127.0.0.1  edss-test` added in step 5;
 
@@ -94,9 +102,9 @@ Assuming one has already developed the Shiny app, deploying the app requires fol
 
 ## 1. Build the Docker image for your Shiny app
 
-It is strongly recommended that users refer to `ShinyApp_Image` folder for examples.
+First of all, please refer to `test_template` under `ShinyApp_Image` folder as the template to create your own applications.
 
-1. Prepare your Shiny app in `app` folder;
+1. Put your Shiny app files under the `app` folder;
 3. In your command line window, navigate to the folder where your __Dockerfile__ is located;
 4. Run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The __same__ `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
 5. Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `http://localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
@@ -104,9 +112,10 @@ It is strongly recommended that users refer to `ShinyApp_Image` folder for examp
 
 ## 2. Adapt configuration files
 
-All configuration files are stored under folder of `config`, where
+The following two files need to be adapted:
 
-- `shinyproxy/application.yml` is the configuration file for ShinyProxy;
+- `config/shinyproxy/application.yml` for configuring the Shiny apps;
+- `docker-compose.yml` for configuring the secured Internet access to your server;
 
 ### ShinyProxy configuration
 
@@ -120,6 +129,7 @@ It is mandatory to adapt `application.yml` by adding your Shiny application so S
   container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"] # don't change it
   container-image:       cocomcie/test_ic # the image name of your Shiny app
   container-network:     "${proxy.docker.container-network}" # don't change
+  access-groups:         [scientists, stakeholder]  # define which group users can access this app
 ```
 
 Users may also want to change authorization configuration, which can be found at `users` section. Three fields shall be created for each designated user:
@@ -127,23 +137,38 @@ Users may also want to change authorization configuration, which can be found at
 ```yaml
   - name:                  admin   # username
     password:              edss123 # password
-    groups:                admins  # the group it belongs to. Users can define different users to give them limited access to some Shiny apps.
+    groups:                admins  # the group it belongs to. Users can define different user groups to limit access to certain apps
 ```  
-
-**:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
-
 Repeat such block as many times as the number of apps you want to add.
-**:warning: Only include the Shiny apps which you have built the images of**.
-
 Additional adaptation is optional and for the full configurable options please visit the ShinyProxy website [here](https://www.shinyproxy.io/configuration/).
 
-## 3. Test and debug
+- **:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
+- **:warning: Only include the Shiny apps which you have built the images of**.
+
+
+### Server configuration
+
+Here we assume that you have a server connected to the Internet, and a resolvable domain name (e.g., www.example.com) that points to the IP address of your server. Otherwise you might consider to buy one from cloud provider and domain seller.
+
+For the server configuration, all you need to do is the following three steps:
+
+1. replace the `subdomain.yourdomain.com` (line 25 and 26) with your own subdomain name;
+2. replace the `another_subdomain.yourdomain.com` (line 46 and 47) with another subdomain name your created, which is different from the one in step 1;
+3. replace the `your_email_addr` (line 102) with your email address. This is used to receive notification for https certificate;
+
+After completing all those steps, you are ready to proceed to server deployment.
+
+
+## 3. Server deployment
 
 
 1. Start the program by typing `docker-compose up -d`;
-2. Now the system should be running on background. One can open the browser and type `localhost:80` as the address to visit the login page;
+2. Now the system should be running on background. Wait for a few minutes and then one should able to access your application on the Internet via the domain name you have;
 3. Use the username and password you defined in the `applicaiton.yml` file to access the Shiny apps;
 4. To shutdown the system simply typing `docker-compose down`;
+
+
+## 4. Debug
 
 The `log` folder containers the log files for debug. In specific,
 
@@ -151,23 +176,18 @@ The `log` folder containers the log files for debug. In specific,
 * `log/nginx` folder holds logs for Nginx server;
 * `log/server` folder holds logs for Shiny applications;
 
-## 4. Server deployment
 
-
-
-# :book:Reference
+# Reference
 
 - [ShinyProxy](https://www.shinyproxy.io/)
 - [Docker](https://docs.docker.com/)
 - [Shiny](https://shiny.rstudio.com/reference/shiny/)
 - [Nginx](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/)
 - [Letsencrypt](https://letsencrypt.org/)
+- [AirGR](https://hydrogr.github.io/airGR/): Coron, L., Thirel, G., Delaigue, O., Perrin, C. and Andréassian, V. (2017). The Suite of Lumped GR Hydrological Models in an R package. Environmental Modelling and Software, 94, 166-171. DOI: 10.1016/j.envsoft.2017.05.002.
+- [ViRTUE](https://github.com/swhatele/ViRTUE): Whateley, Sarah, Jeffrey D. Walker, and Casey Brown. "A web-based screening model for climate risk to water supply systems in the northeastern United States." Environmental Modelling & Software 73 (2015): 64-75.
 
 
 # Contact
 
 **Author**: Dr. Yu Li ([:email:](yu.li@ifu.baug.ethz.ch))
-
-# Credits
-- AirGR example:
-- VirTUe example:

@@ -22,8 +22,8 @@ services:
         target:     /opt/shinyproxy/application.yml
         read_only:  true
     environment:
-      - VIRTUAL_HOST=www.ifu-gwm.com
-      - LETSENCRYPT_HOST=www.ifu-gwm.com
+      - VIRTUAL_HOST=subdomain.yourdomain.com
+      - LETSENCRYPT_HOST=subdomain.yourdomain.com
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
@@ -42,12 +42,14 @@ services:
   adminer:          # Database management client
     image:          adminer
     restart:        always
-    ports:
-      - 8080:8080
+    environment:
+      - VIRTUAL_HOST=another_subdomain.yourdomain.com
+      - LETSENCRYPT_HOST=another_subdomain.yourdomain.com
+      - VIRTUAL_PORT=8080
     networks:
       - edss-net
 
-  nginx_app:        # NGINX service
+  nginx_app:        # Nginx proxy service
     image:          jwilder/nginx-proxy
     restart:        always
     ports:
@@ -97,7 +99,7 @@ services:
         target:     /var/run/docker.sock
         read_only:  true
     environment:
-      - DEFAULT_EMAIL=yu.li@ifu.baug.ethz.ch # optional
+      - DEFAULT_EMAIL=your_email_addr # optional
     networks:
       - edss-net
 
