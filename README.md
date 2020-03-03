@@ -96,6 +96,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # How to prepare and run your own case study apps
 
+First of all, please download the framework from [here](htpps://www.example.com) and extract it.
+
 Assuming one has already developed the Shiny app, deploying the app requires following three steps
 
 1. Build the Docker image for the Shiny app;
