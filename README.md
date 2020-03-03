@@ -1,4 +1,6 @@
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/containous/traefik/blob/master/LICENSE.md)
+
 
 # Table of content
 

@@ -1,6 +1,7 @@
 log/**
 tmp/**
 release/**
+backup/**
 **/R_data/**
 **/model/**
 *.drawio
