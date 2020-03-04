@@ -10,7 +10,8 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - mkdir database && mkdir database/test_ic
+  - mkdir -p database/test_ic
+  - mkdir -p log/container log/nginx log/server
 
 script:
   - docker-compose -f run_examples.yml up -d
