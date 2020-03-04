@@ -21,6 +21,7 @@
   - [3. Server deployment](#3-server-deployment)
   - [4. Debug](#4-debug)
 - [Reference](#reference)
+- [Software version info.](#software-version-info)
 - [Contact](#contact)
 
 <!-- /code_chunk_output -->
@@ -37,9 +38,9 @@ This repository contains all source files for constructing the EDSS framework. T
 ├── ShinyProxy_Image    # Folder for building the ShinyProxy image
 ├── config              # Folder containing the configuration files
 ├── database            # Folder containing external data files used by Shiny applications
+├── log                 # Folder containing log files
 ├── run_examples.yml    # The Docker compose file for running example
 ├── docker-compose.yml  # The Docker compose file for deployment
-├── log                 # Folder containing log files
 ```
 
 
@@ -191,6 +192,26 @@ The `log` folder containers the log files for debug. In specific,
 - [AirGR](https://hydrogr.github.io/airGR/): Coron, L., Thirel, G., Delaigue, O., Perrin, C. and Andréassian, V. (2017). The Suite of Lumped GR Hydrological Models in an R package. Environmental Modelling and Software, 94, 166-171. DOI: 10.1016/j.envsoft.2017.05.002.
 - [ViRTUE](https://github.com/swhatele/ViRTUE): Whateley, Sarah, Jeffrey D. Walker, and Casey Brown. "A web-based screening model for climate risk to water supply systems in the northeastern United States." Environmental Modelling & Software 73 (2015): 64-75.
 
+# Software version info.
+
+  ## Docker images in-use
+  Image name | version
+  :--- | ---
+  nginx-proxy | latest
+  nginx-proxy-letsencrypt-companion | latest
+  shinyproxy | 1.0
+  MySQL | latest
+
+  ## Pre-built packages
+  Package name | version
+  --- | ---
+  R   | 3.6.1
+  shiny | 1.4.0
+  shinydashboard | 0.7.1
+  shinythemes | 1.1.2
+  shinyjs | 1.1
+  shinyWidgets  | 0.5.0
+  shinycssloaders | 0.3
 
 # Contact
 

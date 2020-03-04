@@ -26,28 +26,28 @@ proxy:
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/test_2dmodel
     container-network:     "${proxy.docker.container-network}"
-    access-groups:         [scientists, stakeholder]
+    access-groups:         [admins, scientists, stakeholder]
   - id:                    02_testApp
     display-name:          Crop Water Demand Calculator
     description:           Application which demonstrates the crop water model in a dashboard layout
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/test_ic
     container-network:     "${proxy.docker.container-network}"
-    access-groups:         [scientists, stakeholder]
+    access-groups:         [admins, scientists, stakeholder]
   - id:                    03_testApp
     display-name:          airGR
     description:           Web-app of GR Hydrological Models for Precipitation-Runoff Modelling
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/air_gr
     container-network:     "${proxy.docker.container-network}"
-    access-groups:         scientists   # only user (except admin) belonging to "scientists" can access this app
+    access-groups:         [admins, scientists]   # only user (except admin) belonging to "scientists" can access this app
   - id:                    04_testApp
     display-name:          ViRTUE
     description:           Vulnerability and Risk Assessment Tool for Water Utilities
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/virtue
     container-network:     "${proxy.docker.container-network}"
-    access-groups:         stakeholder  # only user (except admin) belonging to "stakeholder" can access this app
+    access-groups:         [admins, scientists]  # only user (except admin) belonging to "stakeholder" can access this app
 
 logging:
   file:
