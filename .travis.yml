@@ -12,4 +12,4 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose -f run_example.yml up -d
+  - docker-compose -f run_examples.yml up -d
