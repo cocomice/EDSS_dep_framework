@@ -1,10 +1,10 @@
-
+[![Build Status](https://www.travis-ci.com/cocomice/EDSS_dep_framework.svg?token=4szNcXxNcPurpwHQHfkP&branch=master)](https://www.travis-ci.com/cocomice/EDSS_dep_framework)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/containous/traefik/blob/master/LICENSE.md)
-
 
 # Table of content
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 <!-- code_chunk_output -->
 
 - [Table of content](#table-of-content)
@@ -22,10 +22,11 @@
   - [4. Debug](#4-debug)
 - [Reference](#reference)
 - [Software version info.](#software-version-info)
+  - [Docker images in-use](#docker-images-in-use)
+  - [Pre-built packages](#pre-built-packages)
 - [Contact](#contact)
 
 <!-- /code_chunk_output -->
-
 
 # Description of the repository
 
@@ -43,17 +44,15 @@ This repository contains all source files for constructing the EDSS framework. T
 ├── docker-compose.yml  # The Docker compose file for deployment
 ```
 
-
 # Preparation
 
 The following two programs are required to use the EDSS framework.
 
-
 ## Docker
+
 Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows).
 
 Linux users please refer to the office guide [here](https://docs.docker.com/install/linux/docker-ce/centos/) for installation under different Linux distributions.
-
 
 ## Docker Compose (for Linux users)
 
@@ -64,36 +63,36 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-
-
 # How to run the examples
 
-1. Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
-2. In the command line window, navigate the working directory to the EDSS folder by typing `cd path_to_EDSS_folder`. Replace `path_to_EDSS_folder` with the actual path name of the folder;
-3. Pull all example images by typing
+1.  Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
+2.  In the command line window, navigate the working directory to the EDSS folder by typing `cd path_to_EDSS_folder`. Replace `path_to_EDSS_folder` with the actual path name of the folder;
+3.  Pull all example images by typing
     ```bash
     docker pull cocomcie/test_ic
     docker pull cocomcie/test_2dmodel
     docker pull cocomcie/air_gr
     docker pull cocomcie/virtue
     ```
-4. Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
-5. Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
-    * `C:\Windows\System32\drivers\etc\` for Windows;
-    * `/etc/` for Linux;
-    * `/private/etc/` for Mac;
-5. On the browser, one can then access the database and the apps as below:
-   * __Shiny apps__: visit `http://edss-test/` and login the app using a valid username and password. A list of legitimate users are given below:
+4.  Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
+5.  Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
+    -   `C:\Windows\System32\drivers\etc\` for Windows;
+    -   `/etc/` for Linux;
+    -   `/private/etc/` for Mac;
+6.  On the browser, one can then access the database and the apps as below:
 
-      username | password | privilege |
-      --- | --- | --- |
-      admin | edss123 | can access all apps
-      jack  | guest123 | can access some apps
-      david | guest123 | can access some apps  
+    -   **Shiny apps**: visit `http://edss-test/` and login the app using a valid username and password. A list of legitimate users are given below:
 
-   * __MySQL database__: visit `http://localhost:8080` with **root** for the username and **example** for the password;
-7. To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
-8. Remove the line `127.0.0.1  edss-test` added in step 5;
+        | username | password | privilege            |
+        | -------- | -------- | -------------------- |
+        | admin    | edss123  | can access all apps  |
+        | jack     | guest123 | can access some apps |
+        | david    | guest123 | can access some apps |
+
+    -   **MySQL database**: visit `http://localhost:8080` with **root** for the username and **example** for the password;
+
+7.  To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
+8.  Remove the line `127.0.0.1  edss-test` added in step 5;
 
 # How to prepare and run your own case study apps
 
@@ -101,32 +100,32 @@ First of all, please download the framework from [here](htpps://www.example.com)
 
 Assuming one has already developed the Shiny app, deploying the app requires following three steps
 
-1. Build the Docker image for the Shiny app;
-2. Adapt the configuration file for ShinyProxy;
-3. Deploy the system;
+1.  Build the Docker image for the Shiny app;
+2.  Adapt the configuration file for ShinyProxy;
+3.  Deploy the system;
 
 ## 1. Build the Docker image for your Shiny app
 
 First of all, please refer to `test_template` under `ShinyApp_Image` folder as the template to create your own applications.
 
-1. Put your Shiny app files under the `app` folder;
-3. In your command line window, navigate to the folder where your __Dockerfile__ is located;
-4. Run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The __same__ `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
-5. Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `http://localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
-
+1.  Put your Shiny app files under the `app` folder;
+2.  In your command line window, navigate to the folder where your **Dockerfile** is located;
+3.  Run the command `docker build -t image_name .` to build the image, where the `image_name` is an arbitrary name for the image in lower case letters without space. The **same** `image_name` must be used in ShinyProxy configuration file (i.e., `application.yml`);
+4.  Test the image by running `docker run -p 3838:3838 -d image_name`. Then open the browser and visit page `http://localhost:3838`. If the image is successful, you should see your Shiny application's UI just as if it is run in R;
 
 ## 2. Adapt configuration files
 
 The following two files need to be adapted:
 
-- `config/shinyproxy/application.yml` for configuring the Shiny apps;
-- `docker-compose.yml` for configuring the secured Internet access to your server;
+-   `config/shinyproxy/application.yml` for configuring the Shiny apps;
+-   `docker-compose.yml` for configuring the secured Internet access to your server;
 
 ### ShinyProxy configuration
 
 The ShinyProxy use `application.yml` to configure the program. The provided one in this repository provides a minimal working example.
 
 It is mandatory to adapt `application.yml` by adding your Shiny application so ShinyProxy knows where to find and manage it. To add it, go to line 18 `specs:` section and add following fields
+
 ```yaml
 - id:                    02_testApp # unique Id for your Shiny app
   display-name:          Crop Water Demand Calculator # name to be displayed on the main page of the ShinyProxy
@@ -143,13 +142,13 @@ Users may also want to change authorization configuration, which can be found at
   - name:                  admin   # username
     password:              edss123 # password
     groups:                admins  # the group it belongs to. Users can define different user groups to limit access to certain apps
-```  
+```
+
 Repeat such block as many times as the number of apps you want to add.
 Additional adaptation is optional and for the full configurable options please visit the ShinyProxy website [here](https://www.shinyproxy.io/configuration/).
 
-- **:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
-- **:warning: Only include the Shiny apps which you have built the images of**.
-
+-   **:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
+-   **:warning: Only include the Shiny apps which you have built the images of**.
 
 ### Server configuration
 
@@ -157,61 +156,59 @@ Here we assume that you have a server connected to the Internet, and a resolvabl
 
 For the server configuration, all you need to do is the following three steps:
 
-1. replace the `subdomain.yourdomain.com` (line 25 and 26) with your own subdomain name;
-2. replace the `another_subdomain.yourdomain.com` (line 46 and 47) with another subdomain name your created, which is different from the one in step 1;
-3. replace the `your_email_addr` (line 102) with your email address. This is used to receive notification for https certificate;
+1.  replace the `subdomain.yourdomain.com` (line 25 and 26) with your own subdomain name;
+2.  replace the `another_subdomain.yourdomain.com` (line 46 and 47) with another subdomain name your created, which is different from the one in step 1;
+3.  replace the `your_email_addr` (line 102) with your email address. This is used to receive notification for https certificate;
 
 After completing all those steps, you are ready to proceed to server deployment.
 
-
 ## 3. Server deployment
 
-
-1. Start the program by typing `docker-compose up -d`;
-2. Now the system should be running on background. Wait for a few minutes and then one should able to access your application on the Internet via the domain name you have;
-3. Use the username and password you defined in the `applicaiton.yml` file to access the Shiny apps;
-4. To shutdown the system simply typing `docker-compose down`;
-
+1.  Start the program by typing `docker-compose up -d`;
+2.  Now the system should be running on background. Wait for a few minutes and then one should able to access your application on the Internet via the domain name you have;
+3.  Use the username and password you defined in the `applicaiton.yml` file to access the Shiny apps;
+4.  To shutdown the system simply typing `docker-compose down`;
 
 ## 4. Debug
 
 The `log` folder containers the log files for debug. In specific,
 
-* `log/container` folder holds logs for containers;
-* `log/nginx` folder holds logs for Nginx server;
-* `log/server` folder holds logs for Shiny applications;
-
+-   `log/container` folder holds logs for containers;
+-   `log/nginx` folder holds logs for Nginx server;
+-   `log/server` folder holds logs for Shiny applications;
 
 # Reference
 
-- [ShinyProxy](https://www.shinyproxy.io/)
-- [Docker](https://docs.docker.com/)
-- [Shiny](https://shiny.rstudio.com/reference/shiny/)
-- [Nginx](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/)
-- [Letsencrypt](https://letsencrypt.org/)
-- [AirGR](https://hydrogr.github.io/airGR/): Coron, L., Thirel, G., Delaigue, O., Perrin, C. and Andréassian, V. (2017). The Suite of Lumped GR Hydrological Models in an R package. Environmental Modelling and Software, 94, 166-171. DOI: 10.1016/j.envsoft.2017.05.002.
-- [ViRTUE](https://github.com/swhatele/ViRTUE): Whateley, Sarah, Jeffrey D. Walker, and Casey Brown. "A web-based screening model for climate risk to water supply systems in the northeastern United States." Environmental Modelling & Software 73 (2015): 64-75.
+-   [ShinyProxy](https://www.shinyproxy.io/)
+-   [Docker](https://docs.docker.com/)
+-   [Shiny](https://shiny.rstudio.com/reference/shiny/)
+-   [Nginx](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/)
+-   [Letsencrypt](https://letsencrypt.org/)
+-   [AirGR](https://hydrogr.github.io/airGR/): Coron, L., Thirel, G., Delaigue, O., Perrin, C. and Andréassian, V. (2017). The Suite of Lumped GR Hydrological Models in an R package. Environmental Modelling and Software, 94, 166-171. DOI: 10.1016/j.envsoft.2017.05.002.
+-   [ViRTUE](https://github.com/swhatele/ViRTUE): Whateley, Sarah, Jeffrey D. Walker, and Casey Brown. "A web-based screening model for climate risk to water supply systems in the northeastern United States." Environmental Modelling & Software 73 (2015): 64-75.
 
 # Software version info.
 
-  ## Docker images in-use
-  Image name | version
-  :--- | ---
-  nginx-proxy | latest
-  nginx-proxy-letsencrypt-companion | latest
-  shinyproxy | 1.0
-  MySQL | latest
+## Docker images in-use
 
-  ## Pre-built packages
-  Package name | version
-  --- | ---
-  R   | 3.6.1
-  shiny | 1.4.0
-  shinydashboard | 0.7.1
-  shinythemes | 1.1.2
-  shinyjs | 1.1
-  shinyWidgets  | 0.5.0
-  shinycssloaders | 0.3
+| Image name                        | version |
+| :-------------------------------- | ------- |
+| nginx-proxy                       | latest  |
+| nginx-proxy-letsencrypt-companion | latest  |
+| shinyproxy                        | 1.0     |
+| MySQL                             | latest  |
+
+## Pre-built packages
+
+| Package name    | version |
+| :-------------- | ------- |
+| R               | 3.6.1   |
+| shiny           | 1.4.0   |
+| shinydashboard  | 0.7.1   |
+| shinythemes     | 1.1.2   |
+| shinyjs         | 1.1     |
+| shinyWidgets    | 0.5.0   |
+| shinycssloaders | 0.3     |
 
 # Contact
 
