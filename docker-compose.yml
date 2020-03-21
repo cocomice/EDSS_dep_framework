@@ -22,8 +22,8 @@ services:
         target:     /opt/shinyproxy/application.yml
         read_only:  true
     environment:
-      - VIRTUAL_HOST=subdomain.yourdomain.com
-      - LETSENCRYPT_HOST=subdomain.yourdomain.com
+      - VIRTUAL_HOST=subdomain.yourdomain.com # replace "subdomain.yourdomain.com" with your domain name
+      - LETSENCRYPT_HOST=subdomain.yourdomain.com # replace "subdomain.yourdomain.com" with your domain name
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
@@ -43,8 +43,8 @@ services:
     image:          adminer
     restart:        always
     environment:
-      - VIRTUAL_HOST=another_subdomain.yourdomain.com
-      - LETSENCRYPT_HOST=another_subdomain.yourdomain.com
+      - VIRTUAL_HOST=another_subdomain.yourdomain.com # replace "another_subdomain.yourdomain.com" with your domain name
+      - LETSENCRYPT_HOST=another_subdomain.yourdomain.com # replace "another_subdomain.yourdomain.com" with your domain name
       - VIRTUAL_PORT=8080
     networks:
       - edss-net
@@ -99,7 +99,7 @@ services:
         target:     /var/run/docker.sock
         read_only:  true
     environment:
-      - DEFAULT_EMAIL=your_email_addr # optional
+      - DEFAULT_EMAIL=yuli@example.com # replace "yuli@example.com" with your email address
     networks:
       - edss-net
 

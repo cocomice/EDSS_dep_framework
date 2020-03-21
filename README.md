@@ -89,7 +89,7 @@ sudo chmod +x /usr/local/bin/docker-compose
         | jack     | guest123 | can access some apps |
         | david    | guest123 | can access some apps |
 
-    -   **MySQL database**: visit `http://localhost:8080` with **root** for the username and **example** for the password;
+    -   **MySQL database**: visit `http://edss-test:8080` with **root** for the username and **example** for the password;
 
 7.  To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
 8.  Remove the line `127.0.0.1  edss-test` added in step 5;
