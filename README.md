@@ -65,6 +65,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # How to run the examples
 
+First of all, please download the framework from [here](htpps://www.example.com) and extract it.
+
+
 1.  Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
 2.  In the command line window, navigate the working directory to the EDSS folder by typing `cd path_to_EDSS_folder`. Replace `path_to_EDSS_folder` with the actual path name of the folder;
 3.  Pull all example images by typing
