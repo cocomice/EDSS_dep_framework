@@ -1,6 +1,6 @@
 #!/bin/sh
 # $1 is the folder name for a specific release
-mkdir $1
+mkdir release/$1
 
 cp -rf config release/$1/
 cp -rf log release/$1/

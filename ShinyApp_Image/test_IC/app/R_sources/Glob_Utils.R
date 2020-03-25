@@ -1,5 +1,5 @@
 glob_util.getFile_Pt <- function(startYr, endYr) {
-  con <- DBI::dbConnect(RSQLite::SQLite(), "R_data/module_db/test_db.sqlite")
+  con <- DBI::dbConnect(MySQL(), user='root', password='example', dbname='edss_db', host='db')
 
   tmp_db <- tbl(con, "meteo") %>%
     filter(year >= startYr & year <= endYr) %>%

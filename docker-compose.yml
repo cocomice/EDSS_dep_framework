@@ -4,7 +4,6 @@ version:            "3.7"
 
 services:
   sp_app:           # ShinyProxy service
-    build:          ./ShinyProxy_Image
     image:          cocomcie/shinyproxy:1.0
     restart:        always
     volumes:

@@ -50,7 +50,7 @@ The following two programs are required to use the EDSS framework.
 
 ## Docker
 
-Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows).
+Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows). In addition, make sure the **file sharing** is enabled for the disk where you work on your projects.
 
 Linux users please refer to the office guide [here](https://docs.docker.com/install/linux/docker-ce/centos/) for installation under different Linux distributions.
 
