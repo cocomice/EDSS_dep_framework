@@ -11,7 +11,7 @@
 - [Description of the repository](#description-of-the-repository)
 - [Preparation](#preparation)
   - [Docker](#docker)
-  - [Docker Compose (for Linux users)](#docker-compose-for-linux-users)
+  - [Docker Compose (for Linux users only)](#docker-compose-for-linux-users-only)
 - [How to run the examples](#how-to-run-the-examples)
 - [How to prepare and run your own case study apps](#how-to-prepare-and-run-your-own-case-study-apps)
   - [1. Build the Docker image for your Shiny app](#1-build-the-docker-image-for-your-shiny-app)
@@ -46,7 +46,7 @@ This repository contains all source files for constructing the EDSS framework. T
 
 # Preparation
 
-The following two programs are required to use the EDSS framework.
+The following two programs need to be installed on the machine in order to use the EDSS framework.
 
 ## Docker
 
@@ -54,7 +54,7 @@ Windows and Mac users can install the desktop version which comes with Docker Co
 
 Linux users please refer to the office guide [here](https://docs.docker.com/install/linux/docker-ce/centos/) for installation under different Linux distributions.
 
-## Docker Compose (for Linux users)
+## Docker Compose (for Linux users only)
 
 Run following commands:
 
@@ -62,6 +62,8 @@ Run following commands:
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
+
+**Important**: For users who want to run the system on the Internet, make sure the port 80 and 443 is open on your machine to allow the data traffic from outside.
 
 # How to run the examples
 
@@ -78,13 +80,9 @@ First of all, please download the framework from [here](htpps://www.example.com)
     docker pull cocomcie/virtue
     ```
 4.  Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
-5.  Change the `hosts` file by adding a line of `127.0.0.1  edss-test` there. The location of `host` file is under:
-    -   `C:\Windows\System32\drivers\etc\` for Windows;
-    -   `/etc/` for Linux;
-    -   `/private/etc/` for Mac;
-6.  On the browser, one can then access the database and the apps as below:
+5.  On the browser, one can then access the database and the apps as below:
 
-    -   **Shiny apps**: visit `http://edss-test/` and login the app using a valid username and password. A list of legitimate users are given below:
+    -   **Shiny apps**: visit `http://localhost:80` and login the app using a valid username and password. A list of legitimate users are given below:
 
         | username | password | privilege            |
         | -------- | -------- | -------------------- |
@@ -92,10 +90,9 @@ First of all, please download the framework from [here](htpps://www.example.com)
         | jack     | guest123 | can access some apps |
         | david    | guest123 | can access some apps |
 
-    -   **MySQL database**: visit `http://edss-test:8080` with **root** for the username and **example** for the password;
+    -   **MySQL database**: visit `http://localhost:8080` with **root** for the username and **example** for the password;
 
-7.  To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
-8.  Remove the line `127.0.0.1  edss-test` added in step 5;
+6.  To shutdown the system simply typing `docker-compose -f run_examples.yml down`;
 
 # How to prepare and run your own case study apps
 

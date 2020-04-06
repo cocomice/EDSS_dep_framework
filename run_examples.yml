@@ -5,6 +5,8 @@ services:
   sp_app:           # ShinyProxy service
     image:          cocomcie/shinyproxy:1.0
     restart:        always
+    ports:
+      - "80:8080"
     volumes:
       - type:       bind
         source:     /var/run/docker.sock
@@ -41,22 +43,6 @@ services:
     restart:        always
     ports:
       - "8080:8080"
-    networks:
-      - edss-net
-
-  nginx_app:        # NGINX service
-    image:          jwilder/nginx-proxy
-    restart:        always
-    ports:
-      - "80:80"
-    volumes:
-      - type:       bind
-        source:     /var/run/docker.sock
-        target:     /tmp/docker.sock
-        read_only:  true
-      - type:       bind
-        source:     ./log/nginx
-        target:     /var/log/nginx
     networks:
       - edss-net
 
