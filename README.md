@@ -63,7 +63,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-**Important**: For users who want to run the system on the Internet, make sure the port 80 and 443 is open on your machine to allow the data traffic from outside.
+**Important**: For users who want to run the system on their server, make sure the port 80 and 443 is open on your machine to allow the data traffic from outside.
 
 # How to run the examples
 
@@ -72,13 +72,14 @@ First of all, please download the framework from [here](htpps://www.example.com)
 
 1.  Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
 2.  In the command line window, navigate the working directory to the EDSS folder by typing `cd path_to_EDSS_folder`. Replace `path_to_EDSS_folder` with the actual path name of the folder;
-3.  Pull all example images by typing
+3.  Download all examples by typing:
     ```bash
     docker pull cocomcie/test_ic
     docker pull cocomcie/test_2dmodel
     docker pull cocomcie/air_gr
     docker pull cocomcie/virtue
     ```
+    This step only needs to be done once.
 4.  Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
 5.  On the browser, one can then access the database and the apps as below:
 
@@ -148,17 +149,17 @@ Repeat such block as many times as the number of apps you want to add.
 Additional adaptation is optional and for the full configurable options please visit the ShinyProxy website [here](https://www.shinyproxy.io/configuration/).
 
 -   **:warning: Two users cannot use the same username to access the app, otherwise one will be disconnected.**
--   **:warning: Only include the Shiny apps which you have built the images of**.
+-   **:warning: Only include the Shiny apps whose images have been built**.
 
 ### Server configuration
 
-Here we assume that you have a server connected to the Internet, and a resolvable domain name (e.g., www.example.com) that points to the IP address of your server. Otherwise you might consider to buy one from cloud provider and domain seller.
+Here we assume that you have a server connected to the Internet, and a resolvable domain name (e.g., www.example.com) that points to the IP address of your server. Otherwise you might consider to buy one from any cloud provider and domain seller.
 
 For the server configuration, all you need to do is the following three steps:
 
-1.  replace the `subdomain.yourdomain.com` (line 25 and 26) with your own subdomain name;
-2.  replace the `another_subdomain.yourdomain.com` (line 46 and 47) with another subdomain name your created, which is different from the one in step 1;
-3.  replace the `your_email_addr` (line 102) with your email address. This is used to receive notification for https certificate;
+1.  Replace the `subdomain.yourdomain.com` (line 24 and 25) with your own subdomain name;
+2.  Replace the `another_subdomain.yourdomain.com` (line 45 and 46) with another subdomain name your created, which is different from the one in Step 1;
+3.  Replace the `your_email_addr` (line 101) with your email address. This is used to receive notification for https certificate;
 
 After completing all those steps, you are ready to proceed to server deployment.
 
