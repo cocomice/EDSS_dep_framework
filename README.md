@@ -97,7 +97,7 @@ First of all, please download the framework from [here](htpps://www.example.com)
 
 # How to prepare and run your own case study apps
 
-First of all, please download the framework from [here](htpps://www.example.com) and extract it.
+First of all, please download the framework from [here](https://github.com/cocomice/EDSS_dep_framework/archive/V1.0.tar.gz) and extract it.
 
 Assuming one has already developed the Shiny app, deploying the app requires following three steps
 
