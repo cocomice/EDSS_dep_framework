@@ -227,6 +227,7 @@ IC.monthly.soil_water_balance <- function(crop, soil, climate, Pt, plantingdate,
   for (i in 1:length(days)) {
     day <- days[i]
     doy <- unclass(as.POSIXlt(day))$yday + 1
+    if (doy>365) doy <- doy - 365
     month <- doy2month(doy)
 
     water_deficit <- 0
@@ -273,7 +274,7 @@ IC.monthly.soil_water_balance <- function(crop, soil, climate, Pt, plantingdate,
 
     df[i, ] <- c(doy, Kc, Ks, Dr, RAW, ET, ETc, ETa, PRCP, PRCPeff, DP, RO, water_deficit)
   }
-  
+
   return(df)
 }
 
@@ -282,10 +283,10 @@ IC.monthly.soil_water_balance <- function(crop, soil, climate, Pt, plantingdate,
 
 extract_climData <- function(site_id, db_con) {
   load(db_con)
-  
+
   site_idx <- which(metaInfo$site_id == site_id)
   df <- data_list[[site_idx]]
-  
+
   df <- df %>% mutate(month = month(date_val), year = year(date_val))
 
   colNames <- c("MONTH", "WETD", "PRCP", "PRCP_25", "PRCP_75", "TMAX", "TMIN", "HUM", "SUNH", "WND")
@@ -310,11 +311,11 @@ extract_climData <- function(site_id, db_con) {
     df_out$SUNH[mon] <- mean(df$sun_hour[idx], na.rm = T) # monthly sunshine hour
     df_out$WND[mon] <- mean(df$wind_speed[idx], na.rm = T) # monthly wind speed
   }
-  
+
   attr(df_out, "lon") <- metaInfo$lng
   attr(df_out, "lat") <- metaInfo$lat
   attr(df_out, "alt") <- metaInfo$alt
-  
+
   return(df_out)
 }
 

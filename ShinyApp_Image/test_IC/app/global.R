@@ -44,6 +44,15 @@ currYr <- year(sys_date)
 # language switch: 1-Chinese | 2-English (default)
 idx_lang <- 2
 
+db.info <- data.frame(
+  user='root',
+  password='example',
+  dbname='edss_db',
+  host='db',
+  port = 3306,
+  stringsAsFactors = F
+)
+
 # ==== %% General Information %% ====
 
 itemNames <- c(
@@ -55,10 +64,10 @@ itemNames <- c(
 
 crop_types <- list(
   cn = c(
-    "<U+82F9><U+679C>", "<U+68C9><U+82B1>", "<U+9EC4><U+74DC>", "<U+7389><U+7C73>", "<U+5C0F><U+7C73>",
-    "<U+6843><U+5B50>", "<U+82B1><U+751F>", "<U+68A8>", "<U+79CB><U+571F><U+8C46>", "<U+6625><U+571F><U+8C46>",
-    "<U+9AD8><U+7CB1>", "<U+5927><U+8C46>", "<U+751C><U+74DC>", "<U+7EA2><U+85AF>",
-    "<U+897F><U+7EA2><U+67FF>", "<U+852C><U+83DC>", "<U+7EFF><U+8C46>", "<U+8461><U+8404>", "<U+51AC><U+5C0F><U+9EA6>"
+    "苹果树", "棉花", "黄瓜", "玉米", "小米",
+    "桃树", "花生", "梨树", "秋土豆", "春土豆",
+    "高粱", "大豆", "甜瓜", "红薯",
+    "番茄", "蔬菜", "豆类", "葡萄", "冬小麦"
   ),
   en = c(
     "Apples", "Cotton", "Cucumber", "Maize", "Millet",

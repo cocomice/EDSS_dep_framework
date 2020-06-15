@@ -6,9 +6,9 @@ proxy:
   heartbeat-timeout:       60000
   admin-groups:            admins
   users:
-  - name:                  admin
-    password:              edss123
-    groups:                admins
+  - name:                  admin    # username
+    password:              edss123  # user's password for login
+    groups:                admins   # the user-group it belongs to; users can only access apps that share the same user-group
   - name:                  jack
     password:              guest123
     groups:                scientists

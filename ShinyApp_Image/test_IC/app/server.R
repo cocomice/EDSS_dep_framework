@@ -19,7 +19,7 @@ shinyServer(function(input, output, session) {
     key = "N/A",
     metaInfo = NULL
   )
-  
+
   ## ==== Dynamic UI elements ====
 
   # ==== __General ====
@@ -27,9 +27,9 @@ shinyServer(function(input, output, session) {
     helpText(versionInfo[[idx_lang]])
   })
 
-  # ==== __Irrigation Calculator ==== 
+  # ==== __Irrigation Calculator ====
   output$IC_results_ui <- renderUI({
-    tags$div( 
+    tags$div(
       DT::dataTableOutput("tabu_IC")
     )
   })
@@ -46,7 +46,7 @@ shinyServer(function(input, output, session) {
       updateTabsetPanel(session, "mainNavBar", selected = "navData")
     }
   })
-  
+
   ## ==== __Irrigation Calculator ====
   ## ---- ____btm: run Irrigation Calculator ----
   observeEvent(input$button_run_IC, {
@@ -56,7 +56,7 @@ shinyServer(function(input, output, session) {
       incProgress(0.1, detail = ProgressBar$msg_a[idx_lang])
 
       plantingDate <- input$IC_date
-  
+
       crop_id <- as.double(input$IC_crop)
       soil_id <- as.double(input$soilType)
 
@@ -158,7 +158,7 @@ shinyServer(function(input, output, session) {
     }
 
     updatePrettyRadioButtons(session, "irrMtd", choices = irrMtdChoice, selected = 1)
-   })
+  })
 
 
   ## ---- ____btm: radio button for irrigation size ----
@@ -166,7 +166,7 @@ shinyServer(function(input, output, session) {
     idx_wat <- as.integer(input$waterSrc)
     idx <- as.integer(input$irrSize)
 
-    RV_IC$factor_size <-irrNorm_param[[idx_wat]]$factor_size[[idx]]
+    RV_IC$factor_size <- irrNorm_param[[idx_wat]]$factor_size[[idx]]
   })
 
 
@@ -175,13 +175,12 @@ shinyServer(function(input, output, session) {
     idx_wat <- as.integer(input$waterSrc)
     idx <- as.integer(input$irrMtd)
 
-    RV_IC$factor_irr <-irrNorm_param[[idx_wat]]$factor_irrMtd[[idx]]
+    RV_IC$factor_irr <- irrNorm_param[[idx_wat]]$factor_irrMtd[[idx]]
   })
 
-  
-  ## ---- ____btm: radio button for changing crop category ----
-  observeEvent(input$Id050, {
 
+  ## ---- ____btm: radio button for changing crop category ----
+  observe({
     if (input$Id050 == UI_IC_Tab$BT_str$radioBT_crop[idx_lang, 1]) {
       myChoice <- UI_IC_Tab$BT_str$selector_cropChoice1[[idx_lang]]
     }
@@ -199,58 +198,65 @@ shinyServer(function(input, output, session) {
       choices = myChoice,
       selected = myChoice[[1]]
     )
-    
-    
-    if (input$ICtabset == 'IC02tab'){
+
+
+    if (input$ICtabset == "IC02tab") {
       if (input$Id050 == UI_IC_Tab$BT_str$radioBT_crop[idx_lang, 1]) {
         shinyjs::enable("waterSrc")
         shinyjs::enable("irrSize")
         shinyjs::enable("irrMtd")
         shinyjs::disable("IC_ifDrip")
-        
-      } else if (input$Id050 == UI_IC_Tab$BT_str$radioBT_crop[idx_lang, 3]) {
-        
+        updateCheckboxInput(session, "IC_ifDrip", value = FALSE)
+      } else if (input$Id050 == UI_IC_Tab$BT_str$radioBT_crop[idx_lang, 2]) {
         shinyjs::disable("waterSrc")
         shinyjs::disable("irrSize")
         shinyjs::disable("irrMtd")
         shinyjs::enable("IC_ifDrip")
-        
       } else {
         shinyjs::disable("waterSrc")
         shinyjs::disable("irrSize")
         shinyjs::disable("irrMtd")
         shinyjs::disable("IC_ifDrip")
+        updateCheckboxInput(session, "IC_ifDrip", value = FALSE)
       }
-    } 
-    
+    }
   })
 
   ## ---- ____btm: crop type switcher ----
   observe({
     crop_id <- as.integer(input$IC_crop)
-    
+
     startdate <- as.character(cropParam$DATERANGESTART[crop_id])
     enddate <- as.character(cropParam$DATERANGEEND[crop_id])
 
     sltDate <- paste(format(sys_date, "%Y"), substr(startdate, 4, 5), substr(startdate, 1, 2), sep = "-")
 
     updateDateInput(session, "IC_date",
-                    value = sltDate
+      value = sltDate
     )
   })
 
   ## ==== __Dashboard ====
   ## ---- ____change tabs ----
   observeEvent(input$tabs, {
-    
-    
+    l <- leafletProxy("map_dashboard") %>% clearGroup("FetrsAdd")
+
     if (input$tabs == "db_overview") {
       RV_db$metaInfo <- metaInfo
     }
     
+    
+    if (input$tabs == "meteo_data"){
+    l %>%
+      addMarkers(
+        lng = 115.2903, lat = 36.54944,
+        label = paste("ID: ", 54809),
+        group = "FetrsAdd"
+      )
+    }
   })
-  
-  
+
+
   ## ---- ____btm: download data bottom ----
   observeEvent(input$btn_download2, {
     showModal(
@@ -276,12 +282,12 @@ shinyServer(function(input, output, session) {
       )
     )
   })
-  
+
   ## ---- ____slider: check slider years for download----
   observeEvent(input$sldr_timeRng, {
     start_yr <- as.integer(input$sldr_timeRng[1])
     end_yr <- as.integer(input$sldr_timeRng[2])
-    
+
     if ((end_yr - start_yr) >= 10) {
       sendSweetAlert(
         session = session,
@@ -289,35 +295,34 @@ shinyServer(function(input, output, session) {
         text = "Maximal 10 years to download",
         type = "error"
       )
-      
+
       updateSliderTextInput(session, "sldr_timeRng",
-                            choices = seq(2000, currYr),
-                            selected = c(2010, 2017)
+        choices = seq(2000, currYr),
+        selected = c(2010, 2017)
       )
     }
   })
-  
+
   ## ---- ____btm: "OK" bottom to confirm download ----
   output$btn_download3 <- downloadHandler(
     filename <- function() {
       paste("download_gb2312", "csv", sep = ".")
     },
-    
+
     content <- function(file) {
       start_yr <- input$sldr_timeRng[1]
       end_yr <- input$sldr_timeRng[2]
-      
-      outputFile <- glob_util.getFile_Pt(start_yr, end_yr)
-      
-      
-      IOStatus = file.copy(outputFile, file)
-      if (IOStatus==T){
+
+      outputFile <- glob_util.getFile_Pt(db.info, start_yr, end_yr)
+
+
+      IOStatus <- file.copy(outputFile, file)
+      if (IOStatus == T) {
         file.remove(outputFile)
       }
     }
-    # TODO: alternative is to trigger python script to prepare the download files
   )
-  
+
   ## ==== Plots, Text and Tables ====
 
   # ==== __Irrigation Calculator =====
@@ -377,7 +382,6 @@ shinyServer(function(input, output, session) {
 
   # ---- ____table: table of irrigation norm ----
   output$tabu_irrNorm <- DT::renderDataTable({
-
     if (input$Id050 == UI_IC_Tab$BT_str$radioBT_crop[idx_lang, 1]) {
       db_tmp <- read.table("R_data/module_IC/irr_norm_grain.csv", sep = ",", header = T, fileEncoding = "UTF-8")
       db_tmp[, 2] <- as.factor(db_tmp[, 2])
@@ -395,7 +399,7 @@ shinyServer(function(input, output, session) {
       db_tmp[, 2] <- as.factor(db_tmp[, 2])
       cNames <- UI_IC_Tab$table_str$irrNorm3[idx_lang, ]
 
-      if (input$IC_ifDrip==T){
+      if (input$IC_ifDrip == T) {
         db_tmp$base_quota <- round(db_tmp$base_quota * 0.8)
       }
     }
@@ -406,7 +410,7 @@ shinyServer(function(input, output, session) {
     datatable(
       db_tmp[idx, ],
       rownames = F,
-      filter = "top",
+      filter = "none",
       options = list(
         language = rjson::fromJSON(file = langJsonFile)
       ),
@@ -414,13 +418,12 @@ shinyServer(function(input, output, session) {
       style = "bootstrap"
     )
   })
-  
+
   # ==== __Dashboard ====
   # ---- ____map: leaflet base map in dashboard ----
   output$map_dashboard <- renderLeaflet({
-    
-    shape_irr_area  <- readOGR("R_data/module_db/GT_GIS_db.sqlite", "townships")
-    
+    shape_irr_area <- readOGR("R_data/module_db/GT_GIS_db.sqlite", "townships")
+
     leaflet() %>%
       addTiles() %>%
       addPolygons(
@@ -433,16 +436,16 @@ shinyServer(function(input, output, session) {
         onClick = JS("function(btn, map){ map.setView(new L.LatLng(36.62, 115.29), 10); }")
       ))
   })
-  
+
   # ---- ____table: table of data meta information----
   output$tabu_dataMetaInfo <- DT::renderDataTable({
     idx <- as.numeric(input$db_rb_dataType)
-    
+
     db_tmp <- data.frame(
       items = UI_DBPortal_Tab$table_str$metaInfo[idx_lang, ],
       details = RV_db$metaInfo[[idx_lang]][idx]
     )
-    
+
     datatable(
       db_tmp,
       rownames = F,
@@ -459,25 +462,24 @@ shinyServer(function(input, output, session) {
       style = "bootstrap"
     )
   })
-  
-  
+
+
   # ---- ____chart: meteorological data time-series ----
   output$meteo_ts <- renderAmCharts({
+    con <- DBI::dbConnect(MySQL(), user = db.info$user, password = db.info$password, dbname = db.info$dbname, host = db.info$host, port = db.info$port)
 
-    con <- DBI::dbConnect(MySQL(), user='root', password='example', dbname='edss_db', host='db')
-    
     tmp_db <- tbl(con, "meteo") %>%
       collect()
-    
+
     DBI::dbDisconnect(con)
-    
+
     # manipulate data
     db_tmp <- data.frame(
       date = paste(as.character(tmp_db$year), as.character(tmp_db$month), sep = "-"),
-      val  = tmp_db$pt
+      val = tmp_db$pt
     )
     colnames(db_tmp) <- c("date", "val")
-    
+
     amSerialChart(dataProvider = db_tmp, theme = "dark", categoryField = "date") %>%
       addGraph(
         valueField = "val", precision = 1,
@@ -495,7 +497,7 @@ shinyServer(function(input, output, session) {
       setChartScrollbar(autoGridCount = T) %>%
       setChartCursor(valueLineEnabled = FALSE, valueLineBalloonEnabled = TRUE)
   })
-  
+
   ## ==== End Shiny Session =====
   session$onSessionEnded(function() {
     stopApp()

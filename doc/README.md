@@ -50,7 +50,11 @@ The following two programs need to be installed on the machine in order to use t
 
 ## Docker
 
-Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows). In addition, make sure the **file sharing** is enabled for the disk where you work on your projects.
+Windows and Mac users can install the desktop version which comes with Docker Compose. The installation file can be downloaded from [here](https://hub.docker.com/editions/community/docker-ce-desktop-mac/) (Mac) or [here](https://hub.docker.com/editions/community/docker-ce-desktop-windows/) (Windows). In addition, the directory to your app's working folder must be added in the resource list under `FILE SHARING` in Docker (see figure below). 
+
+
+![img_fileSharing](/assets/img_fileSharing.png)
+Figure. The `FILE SHARING` setting in Docker. 
 
 Linux users please refer to the office guide [here](https://docs.docker.com/install/linux/docker-ce/centos/) for installation under different Linux distributions.
 
