@@ -71,7 +71,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # How to run the examples
 
-First of all, please download the framework from [here](htpps://www.example.com) and extract it.
+First of all, please download the framework from [here](https://github.com/cocomice/EDSS_dep_framework/releases/download/v1.1.0/V1.1.0.tar.gz) and extract it.
 
 
 1.  Open your command line tool, e.g., `Terminal` (OSX or Unix), `Powershell` (Windows);
@@ -101,7 +101,7 @@ First of all, please download the framework from [here](htpps://www.example.com)
 
 # How to prepare and run your own case study apps
 
-First of all, please download the framework from [here](https://github.com/cocomice/EDSS_dep_framework/archive/V1.0.tar.gz) and extract it.
+First of all, please download the framework from [here](https://github.com/cocomice/EDSS_dep_framework/releases/download/v1.1.0/V1.1.0.tar.gz) and extract it.
 
 Assuming one has already developed the Shiny app, deploying the app requires following three steps
 
