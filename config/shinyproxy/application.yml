@@ -2,8 +2,8 @@ proxy:
   port:                    8080
   container-log-path:      /container-logs
   authentication:          simple
-  heartbeat-rate:          10000
-  heartbeat-timeout:       60000
+  heartbeat-rate:          60000
+  heartbeat-timeout:       1800000
   admin-groups:            admins
   users:
   - name:                  admin    # username
@@ -33,7 +33,7 @@ proxy:
     container-cmd:         ["R", "-e", "shiny::runApp('/root/shinyapp', host='0.0.0.0', port=3838)"]
     container-image:       cocomcie/test_ic
     container-network:     "${proxy.docker.container-network}"
-    access-groups:         [admins, scientists, stakeholder]
+    access-groups:         [admins, stakeholder]
   - id:                    03_testApp
     display-name:          airGR
     description:           Web-app of GR Hydrological Models for Precipitation-Runoff Modelling

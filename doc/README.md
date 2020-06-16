@@ -84,7 +84,7 @@ First of all, please download the framework from [here](htpps://www.example.com)
     docker pull cocomcie/virtue
     ```
     This step only needs to be done once.
-4.  Start the program by typing `docker-compose -f run_examples.yml up -d`. Now the system should be running on background;
+4.  Start the program by typing `docker-compose -f run_examples.yml up -d`. The program will download a few necessary packages (takes about 2-3 mins depending on Internet connection), and then it should be running in the background;
 5.  On the browser, one can then access the database and the apps as below:
 
     -   **Shiny apps**: visit `http://localhost:80` and login the app using a valid username and password. A list of legitimate users are given below:
